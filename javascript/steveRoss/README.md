@@ -13,5 +13,5 @@ USERNAME=YOUR_USERNAME
 AUTH=microsoft
 ```
 
-2. Place your image within the `./reference/` folder and name it `image.jpg`
+2. Place your image within the `./reference/` folder and name it `image.jpg`.
 3. Run `make config`, then `make run`.
