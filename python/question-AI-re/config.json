@@ -1,0 +1,12 @@
+{
+  "text": {
+    "Name": "John Doe",
+    "Email": "john@example.com"
+  },
+  "multiple_choice": {
+    "Favorite Color": "Blue"
+  },
+  "long_answer": {
+    "Feedback": "This is my feedback."
+  }
+}
