@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 IMAGE_FILEPATH = "color_wheel.jpeg"
-TARGET_FILEPATH = "detected_output.jpeg"
+TARGET_FILEPATH = "detected_color_output.jpeg"
 
 image = cv2.imread(IMAGE_FILEPATH)
 image = cv2.resize(image, (700, 600))
