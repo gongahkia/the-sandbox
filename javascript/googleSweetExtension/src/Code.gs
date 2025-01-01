@@ -19,7 +19,7 @@ function createMonthlySheet() {
   for (var i = 2; i <= lastRow; i++) {
     newSheet.getRange(i, 5).setFormula(`=C${i}-D${i}`);
   }
-  newSheet.appendRow(["Total", "", `=SUM(C2:C${lastRow-1})`, `=SUM(D2:D${lastRow-1})`, `=SUM(E2:E${lastRow-1})`]);
+  newSheet.appendRow(["Total", "", `=SUM(C2:C${lastRow})`, `=SUM(D2:D${lastRow})`, `=SUM(E2:E${lastRow})`]);
   newSheet.getRange(lastRow + 1, 1, 1, 5).setFontSize(12).setFontFamily("Comic Sans MS");
   newSheet.setColumnWidth(2, newSheet.getColumnWidth(3) * 4);
   Logger.log("Monthly sheet created successfully.");
