@@ -1,0 +1,9 @@
+[package]
+name = "crusty-tunnel"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+rustls = "0.20"
+hyper = { version = "0.14", features = ["client", "runtime"] }
