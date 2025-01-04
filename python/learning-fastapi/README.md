@@ -2,6 +2,8 @@
 
 Experimenting with [FastAPI](https://fastapi.tiangolo.com/).
 
+Made a naive extensible baseline for what the [five-seconds](https://github.com/gongahkia/five-seconds) API could look like.
+
 ## For my learning
 
 * Modern web framework for building APIs with Python
