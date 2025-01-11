@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl visual three</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+        }
+
+        .vinyl-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .vinyl {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff00cc, #333399, #ff0000);
+            animation: rotate 3s linear infinite paused;
+        }
+
+        .vinyl.playing {
+            animation-play-state: running;
+        }
+
+        .inner-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40%;
+            height: 40%;
+            background-color: #000;
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .track-info {
+            margin-bottom: 10px;
+        }
+
+        .track-title {
+            font-weight: bold;
+            font-size: 16px;
+            margin: 0;
+        }
+
+        .track-artist {
+            font-size: 14px;
+            margin: 5px 0 0;
+        }
+
+        .play-pause {
+            background-color: white;
+            border: none;
+            color: #6a11cb;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .play-pause:hover {
+            background-color: #e0e0e0;
+        }
+
+        .groove {
+            position: absolute;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 0.7; }
+        }
+
+        .groove:nth-child(1) { width: 90%; height: 90%; top: 5%; left: 5%; animation: pulse 2s infinite; }
+        .groove:nth-child(2) { width: 70%; height: 70%; top: 15%; left: 15%; animation: pulse 2s infinite 0.4s; }
+        .groove:nth-child(3) { width: 50%; height: 50%; top: 25%; left: 25%; animation: pulse 2s infinite 0.8s; }
+    </style>
+</head>
+<body>
+    <div class="vinyl-container">
+        <div class="vinyl">
+            <div class="groove"></div>
+            <div class="groove"></div>
+            <div class="groove"></div>
+        </div>
+        <div class="inner-circle">
+            <div class="track-info">
+                <p class="track-title">Stairway to Heaven</p>
+                <p class="track-artist">Led Zeppelin</p>
+            </div>
+            <button class="play-pause" aria-label="Play">▶</button>
+        </div>
+    </div>
+
+    <script>
+
+        const vinyl = document.querySelector('.vinyl');
+        const playPauseButton = document.querySelector('.play-pause');
+        const trackTitle = document.querySelector('.track-title');
+        const trackArtist = document.querySelector('.track-artist');
+        let isPlaying = false;
+
+        const tracks = [
+            { title: "Bohemian Rhapsody", artist: "Queen" },
+            { title: "Imagine", artist: "John Lennon" },
+            { title: "Like a Rolling Stone", artist: "Bob Dylan" },
+            { title: "Smells Like Teen Spirit", artist: "Nirvana" },
+            { title: "Stairway to Heaven", artist: "Led Zeppelin" }
+        ];
+
+        function togglePlayPause() {
+            isPlaying = !isPlaying;
+            if (isPlaying) {
+                vinyl.classList.add('playing');
+                playPauseButton.innerHTML = '❚❚';
+                playPauseButton.setAttribute('aria-label', 'Pause');
+            } else {
+                vinyl.classList.remove('playing');
+                playPauseButton.innerHTML = '▶';
+                playPauseButton.setAttribute('aria-label', 'Play');
+            }
+        }
+
+        function changeTrack() {
+            const randomTrack = tracks[Math.floor(Math.random() * tracks.length)];
+            trackTitle.textContent = randomTrack.title;
+            trackArtist.textContent = randomTrack.artist;
+        }
+
+        playPauseButton.addEventListener('click', togglePlayPause);
+
+        setInterval(changeTrack, 10000);
+
+    </script>
+</body>
+</html>
