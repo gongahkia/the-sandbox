@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sample frontend</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        input, button {
+            margin: 10px 0;
+            padding: 5px;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>learning fastapi</h1>
+
+    <h2>Retrieve Hash Value</h2>
+    <input type="text" id="retrieveHash" placeholder="Enter hash to retrieve">
+    <button onclick="retrieveValue()">Retrieve</button>
+
+    <h2>Store Hash Value</h2>
+    <input type="text" id="storeHash" placeholder="Enter hash to store">
+    <input type="text" id="storeValue" placeholder="Enter value to store">
+    <button onclick="storeValue()">Store</button>
+    
+    <div id="result"></div>
+
+    <script>
+        const API_URL = 'http://127.0.0.1:8000/';  
+        async function retrieveValue() {
+            const hash = document.getElementById('retrieveHash').value;
+            try {
+                endpoint = `${API_URL}retrieve/${hash}`;
+                console.log(endpoint);
+                const response = await fetch(endpoint);
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('result').innerHTML = `Retrieved: ${data.value}`;
+                } else {
+                    document.getElementById('result').innerHTML = `Error: ${data.detail}`;
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = `Error: ${error.message}`;
+            }
+            console.log
+        }
+
+        async function storeValue() {
+            const hash = document.getElementById('storeHash').value;
+            const value = document.getElementById('storeValue').value;
+            try {
+                const response = await fetch(`${API_URL}store/${hash}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ value: value }),
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    document.getElementById('result').innerHTML = `Stored: ${data.value} for hash ${data.hash}`;
+                } else {
+                    document.getElementById('result').innerHTML = `Error: ${data.detail}`;
+                }
+            } catch (error) {
+                document.getElementById('result').innerHTML = `Error: ${error.message}`;
+            }
+        }
+    </script>
+</body>
+</html>

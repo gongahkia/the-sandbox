@@ -6,10 +6,25 @@ Made a naive extensible baseline for what the [five-seconds](https://github.com/
 
 ## For my learning
 
-* Modern web framework for building APIs with Python
+* Modern web framework for building complete backends with out-of-the-box API endpoints + clean documentation in Python
 * Built on top of Starlette and Pydantic
 * Automatic generates API documentation with OpenAPI in the browser
 * Leverages asynchronous programming with async and await, allowing it to handle multiple requests concurrently without blocking operations
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Frontend
+    participant FastAPI
+    participant Database
+
+    Client->>Frontend: User interacts with UI
+    Frontend->>FastAPI: HTTP Request (GET, POST, PUT, DELETE)
+    FastAPI->>Database: Query or Update Data
+    Database-->>FastAPI: Return Data
+    FastAPI-->>Frontend: JSON Response
+    Frontend->>Client: Update UI
+```
 
 ## Usage
 
@@ -18,9 +33,7 @@ Made a naive extensible baseline for what the [five-seconds](https://github.com/
 ```console
 $ python3 -m venv fastapi_env
 $ source fastapi_env/bin/activate
-$ pip install uvicorn
-$ make config
-$ make
+$ pip install -r requirements.txt
 ```
 
 2. Navigate to [`127.0.0.1:8000`](http://127.0.0.1:8000/docs) within your browser.

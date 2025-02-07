@@ -1,8 +1,27 @@
 from typing import Union, Dict
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
+
+"""
+Cross-Origin Resource Sharing (CORS) 
+is a security mechanism that allows web apps
+to access resources from domains other than the one
+serving the application
+
+REQURIED FOR OFFICIAL DEPLOYMENT
+"""
+
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"], 
+)
 
 mock_db: Dict[str, str] = {
     "hash1": "Value for hash 1",
