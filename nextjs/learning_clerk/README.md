@@ -4,6 +4,27 @@
 
 Below is an example app that implements Clerk's sign up and profile management.
 
+## Architecture 
+
+```mermaid
+sequenceDiagram
+
+    participant User
+    participant ReactApp
+    participant ClerkComponents
+    participant ClerkAPI
+    participant Backend
+
+    User->>ReactApp: Interacts with app
+    ReactApp->>ClerkComponents: Renders authentication components
+    User->>ClerkComponents: Signs in/up
+    ClerkComponents->>ClerkAPI: Authenticates user
+    ClerkAPI-->>ClerkComponents: Returns authentication token
+    ClerkComponents-->>ReactApp: Provides user session
+    ReactApp->>Backend: Makes authenticated requests
+    Backend-->>ReactApp: Returns protected data
+```
+
 ## Usage
 
 1. Place your clerk token within `.env.local`.
