@@ -38,9 +38,17 @@ sequenceDiagram
 
 ## Usage
 
-If build locally.
+*For if you want to build this locally.*
 
-1. Run the following.
+1. Place the project password, supabase URL and supabase key into a local `.env` file.
+
+```env
+PROJECT_PASSWORD=XXX
+SUPABASE_URL=XXX
+SUPABASE_KEY=XXX
+```
+
+2. Run the following.
 
 ```console
 $ python3 -m venv fastapi_env
@@ -48,8 +56,8 @@ $ source fastapi_env/bin/activate
 $ pip install -r requirements.txt
 ```
 
-2. Navigate to [`127.0.0.1:8000`](http://127.0.0.1:8000/docs) within your browser.
-3. Interact with the endpoints.
+3. Navigate to [`127.0.0.1:8000`](http://127.0.0.1:8000/docs) within your browser.
+4. Interact with the endpoints.
 
 ```console
 $ curl "http://127.0.0.1:8000/retrieve/hash1"
