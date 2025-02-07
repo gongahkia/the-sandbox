@@ -1,4 +1,4 @@
-# `learning_fastAPI`
+# `learning_fastapi_and_supabase`
 
 Backend with [FastAPI](https://fastapi.tiangolo.com/).
 
@@ -6,7 +6,7 @@ Cloud hosted database with [Supabase](https://supabase.com/).
 
 ## Screenshot
 
-![](image.png)
+![](front.png)
 
 ## Arhitecture
 
