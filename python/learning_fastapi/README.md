@@ -1,8 +1,33 @@
 # `learning_fastAPI`
 
-Experimenting with [FastAPI](https://fastapi.tiangolo.com/).
+Backend with [FastAPI](https://fastapi.tiangolo.com/).
 
-Made a naive extensible baseline for what the [five-seconds](https://github.com/gongahkia/five-seconds) API could look like.
+Cloud hosted database with [Supabase](https://supabase.com/).
+
+## Screenshot
+
+![](image.png)
+
+## Arhitecture
+
+* **Supabase DB** hosted on the cloud
+* **Frontend** is `index.html`
+* **FastAPI** is the backend code run within `app.py`
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Frontend
+    participant FastAPI
+    participant Supabase DB
+
+    Client->>Frontend: User interacts with UI
+    Frontend->>FastAPI: HTTP Request (GET, POST)
+    FastAPI->>Supabase DB: Query or Update Data
+    Supabase DB-->>FastAPI: Return Data
+    FastAPI-->>Frontend: JSON Response
+    Frontend->>Client: Update UI
+```
 
 ## For my learning
 
@@ -11,22 +36,9 @@ Made a naive extensible baseline for what the [five-seconds](https://github.com/
 * Automatic generates API documentation with OpenAPI in the browser
 * Leverages asynchronous programming with async and await, allowing it to handle multiple requests concurrently without blocking operations
 
-```mermaid
-sequenceDiagram
-    participant Client
-    participant Frontend
-    participant FastAPI
-    participant Database
-
-    Client->>Frontend: User interacts with UI
-    Frontend->>FastAPI: HTTP Request (GET, POST, PUT, DELETE)
-    FastAPI->>Database: Query or Update Data
-    Database-->>FastAPI: Return Data
-    FastAPI-->>Frontend: JSON Response
-    Frontend->>Client: Update UI
-```
-
 ## Usage
+
+If build locally.
 
 1. Run the following.
 

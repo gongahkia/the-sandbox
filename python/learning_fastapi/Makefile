@@ -1,7 +1,7 @@
 all:run
 
 run:
-	uvicorn main:app --reload
+	uvicorn app:app --reload
 
 config:
 	pip install -r requirements.txt
