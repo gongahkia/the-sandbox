@@ -16,6 +16,9 @@ Made a naive extensible baseline for what the [five-seconds](https://github.com/
 1. Run the following.
 
 ```console
+$ python3 -m venv fastapi_env
+$ source fastapi_env/bin/activate
+$ pip install uvicorn
 $ make config
 $ make
 ```
