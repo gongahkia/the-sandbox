@@ -1,5 +1,7 @@
 # Particle sandbox
 
+Supporting 15 unique particles - sand, water, stone, oil, fire, steam, wood, acid, salt, lava, ice, plant, smoke, gunpowder and electricity.
+
 ## Usage
 
 ```console
