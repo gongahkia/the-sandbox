@@ -13,7 +13,8 @@ def create_app(shop):
         html.Div([
             html.Div([
                 dcc.Graph(id='barbers-status'),
-                dcc.Graph(id='waiting-room'),
+                dcc.G
+                raph(id='waiting-room'),
             ], style={'width': '50%', 'display': 'inline-block'}),
             html.Div([
                 dcc.Graph(id='customer-satisfaction'),
