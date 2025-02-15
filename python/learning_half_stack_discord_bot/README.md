@@ -6,11 +6,49 @@ Ideally a smarter, better-structured version of [`learning_discord_bot`](./../le
 
 ## Commands
 
-> TODO add here
+| Command | Description | Example |
+| :--- | :--- | :---: |
+| `!borrow <book title>` | searches for a book and adds it to the database | ![](./find.png) |
+| `!return <book title>` | removes a book from the database | ![](./borrow.png) |
+| `!list` | lists all books currently in the database | ![](./list.png) |
+| `!find <book title>` | searches for a book and displays its information without adding it to the database |![](./return.png) |
 
 ## Architecture
 
-> TODO add mermaid diagram here
+### Overview
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant DiscordBot
+    participant FastAPI
+    participant Supabase
+    participant OpenLibrary
+
+    User->>DiscordBot: Send command (e.g., !find, !borrow, !return, !list)
+    DiscordBot->>FastAPI: Forward command
+    FastAPI->>OpenLibrary: Search for book info
+    OpenLibrary-->>FastAPI: Return book data
+    FastAPI->>Supabase: Store/retrieve book data
+    Supabase-->>FastAPI: Confirm data operation
+    FastAPI-->>DiscordBot: Send response
+    DiscordBot-->>User: Display result
+```
+
+### DB structure
+
+```mermaid
+erDiagram
+    BOOKS {
+        int id PK
+        string title
+        string author
+        int year
+        string isbn
+        string cover_url
+        datetime created_at
+    }
+```
 
 ## Usage (local hosting)
 
@@ -36,5 +74,7 @@ Then run the below.
 $ python3 -m venv myenv
 $ source myenv source/bin/activate
 $ pip install fastapi uvicorn supabase discord.py python-dotenv requests
-$ python3 bot.py
+$ python3 main.py
 ```
+
+![](https://media0.giphy.com/media/6f15PceJUw8WGlj4uu/giphy.gif?cid=6c09b9523huev5xhgkdz38wrgduif9fc520sghm1cium0fu4&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g)

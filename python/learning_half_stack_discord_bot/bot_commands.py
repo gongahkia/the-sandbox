@@ -7,8 +7,8 @@ def setup_bot_commands(bot: commands.Bot, supabase):
         try:
             book_info = await get_book_info(title)
             if book_info:
-                response = requests.post(f"{supabase.url}/books/", json=book_info)
-                if response.status_code == 200:
+                response = supabase.table("books").insert(book_info).execute()
+                if response.data:
                     await ctx.send(f"Book '{title}' has been borrowed and added to the database.")
                 else:
                     await ctx.send("Failed to add the book to the database.")
@@ -20,8 +20,8 @@ def setup_bot_commands(bot: commands.Bot, supabase):
     @bot.command(name='return')
     async def return_book(ctx, *, title: str):
         try:
-            response = requests.delete(f"{supabase.url}/books/{title}")
-            if response.status_code == 200:
+            response = supabase.table("books").delete().eq("title", title).execute()
+            if response.data:
                 await ctx.send(f"Book '{title}' has been returned and removed from the database.")
             else:
                 await ctx.send("Failed to remove the book from the database.")
@@ -31,16 +31,13 @@ def setup_bot_commands(bot: commands.Bot, supabase):
     @bot.command(name='list')
     async def list_books(ctx):
         try:
-            response = requests.get(f"{supabase.url}/books/")
-            if response.status_code == 200:
-                books = response.json()
-                if books:
-                    book_list = "\n".join([f"- {book['title']} by {book['author']}" for book in books])
-                    await ctx.send(f"Available books:\n{book_list}")
-                else:
-                    await ctx.send("No books available in the database.")
+            response = supabase.table("books").select("*").execute()
+            if response.data:
+                books = response.data
+                book_list = "\n".join([f"- {book['title']} by {book['author']}" for book in books])
+                await ctx.send(f"Available books:\n{book_list}")
             else:
-                await ctx.send("Failed to retrieve books from the database.")
+                await ctx.send("No books available in the database.")
         except Exception as e:
             await ctx.send(f"An error occurred: {str(e)}")
 

@@ -11,21 +11,23 @@ from endpoints import setup_api_endpoints
 
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
-SUPABASE_URL = os.getenv('SUPABASE_URL')
-SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 
 intents = discord.Intents.default()
 intents.message_content = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 app = FastAPI()
-supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
+supabase: Client = create_client(
+    os.environ.get("SUPABASE_URL"),
+    os.environ.get("SUPABASE_KEY")
+)
 
 setup_bot_commands(bot, supabase)
 setup_api_endpoints(app, supabase)
 
 if __name__ == "__main__":
     def run_fastapi():
+        print("FastAPI is starting...")
         uvicorn.run(app, host="0.0.0.0", port=8000)
 
     fastapi_thread = Thread(target=run_fastapi)
