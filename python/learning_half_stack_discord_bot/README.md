@@ -8,10 +8,10 @@ Ideally a smarter, better-structured version of [`learning_discord_bot`](./../le
 
 | Command | Description | Example |
 | :--- | :--- | :---: |
-| `!borrow <book title>` | searches for a book and adds it to the database | ![](./find.png) |
-| `!return <book title>` | removes a book from the database | ![](./borrow.png) |
+| `!find <book title>` | searches for a book and displays its information without adding it to the database |![](./find.png) |
+| `!borrow <book title>` | searches for a book and adds it to the database | ![](./borrow.png) |
 | `!list` | lists all books currently in the database | ![](./list.png) |
-| `!find <book title>` | searches for a book and displays its information without adding it to the database |![](./return.png) |
+| `!return <book title>` | removes a book from the database | ![](./return.png) |
 
 ## Architecture
 
