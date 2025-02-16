@@ -1,5 +1,7 @@
 # Learning Stripe *(with FastAPI and Supabase)*
 
+*The values in the 2 images below are **test data** given by stripe.*
+
 ![](./existing.png)
 ![](./new.png)
 
