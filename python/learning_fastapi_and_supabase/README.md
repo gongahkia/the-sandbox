@@ -10,7 +10,7 @@ Cloud hosted database with [Supabase](https://supabase.com/).
 
 ## Arhitecture
 
-* **Supabase DB** hosted on the cloud
+* **DB** hosted with Supabase
 * **Frontend** is `index.html`
 * **FastAPI** is the backend code run within `app.py`
 
@@ -33,7 +33,7 @@ sequenceDiagram
 
 * Modern web framework for building complete backends with out-of-the-box API endpoints + clean documentation in Python
 * Built on top of Starlette and Pydantic
-* Automatic generates API documentation with OpenAPI in the browser
+* Automatic generates API documentation with FastAPI in the browser
 * Leverages asynchronous programming with async and await, allowing it to handle multiple requests concurrently without blocking operations
 
 ## Usage
