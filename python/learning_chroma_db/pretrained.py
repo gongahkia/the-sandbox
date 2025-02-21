@@ -47,18 +47,17 @@ def load_json_to_chromadb(json_file_path, collection_name):
     if not ollama_client:
         return None
 
-    def ollama_embedding_function(self, input: Documents) -> Embeddings:
+    def ollama_embedding_function(texts):
         embeddings = []
-        for text in input:
+        for text in texts:
             response = generate_response(ollama_client, "llama2", f"Generate an embedding for: {text}", "")
             embedding = [float(x) for x in response.split()]
             embeddings.append(embedding)
         return embeddings
 
-    ef = ollama_embedding_function()
     collection = client.get_or_create_collection(
         name=collection_name,
-        embedding_function=ef
+        embedding_function=ollama_embedding_function
     )
 
     with open(json_file_path, 'r') as file:
