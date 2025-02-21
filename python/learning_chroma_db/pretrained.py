@@ -1,9 +1,11 @@
 # ----- REQUIRED IMPORTS -----
 
+import os
 import json
+import ollama
 import chromadb
 from chromadb.utils import embedding_functions
-import ollama
+from chromadb.api.types import Documents, Embeddings
 
 # ----- HELPER FUNCTIONS -----
 
@@ -37,15 +39,17 @@ def generate_response(client, model_name, prompt, context):
 
 def load_json_to_chromadb(json_file_path, collection_name):
 
-    client = chromadb.PersistentClient(path="./chroma_db")
-    
+    chroma_db_path = os.path.join(os.getcwd(), "chroma_db")
+    os.makedirs(chroma_db_path, exist_ok=True)
+    os.chmod(chroma_db_path, 0o755)
+    client = chromadb.PersistentClient(path=chroma_db_path)
     ollama_client = start_model()
     if not ollama_client:
         return None
-    
-    def ollama_embedding_function(texts):
+
+    def ollama_embedding_function(input: Documents) -> Embeddings:
         embeddings = []
-        for text in texts:
+        for text in input:
             response = generate_response(ollama_client, "llama2", f"Generate an embedding for: {text}", "")
             embedding = [float(x) for x in response.split()]
             embeddings.append(embedding)

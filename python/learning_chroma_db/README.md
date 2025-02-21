@@ -12,6 +12,5 @@ Test datasets taken from [dudeonthehorse/datasets](https://github.com/dudeontheh
 $ python3 -m venv myenv
 $ source myenv/bin/activate
 $ pip install -r requirements.txt
-$ python3 built_in.py
 $ python3 pretrained.py
 ```
