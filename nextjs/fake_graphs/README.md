@@ -9,7 +9,7 @@ Fake graphs plotted with [Tremor](https://tremor.so/) in [Next.Js](https://nextj
 First run the below.
 
 ```console
-$ cd fake_graphs
+$ cd src/fake_graphs
 $ npm install @tremor/react tailwindcss postcss autoprefixer
 $ npm run dev
 ```
