@@ -32,7 +32,7 @@ def fill_google_form(form_url, predefined_inputs):
 # ----- EXECUTION CODE -----
 
 if __name__ == "__main__":
-    form_url = "https://docs.google.com/forms/d/e/1FAIpQLSdyNmsNUBMVxZjAEn7KZ5CKAcsYMCR5QAtGLxhjFYnNORWI4w/viewform?usp=preview"
+    form_url = ""
     predefined_inputs = {
         "Name": "John Doe",
         "Email": "johndoe@example.com",
