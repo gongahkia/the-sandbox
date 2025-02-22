@@ -2,15 +2,14 @@
 
 Fake graphs plotted with [Tremor](https://tremor.so/) in [Next.Js](https://nextjs.org/).
 
-
+![](https://media.tenor.com/ICjf6uAqUSEAAAAM/kosuke-kira-btooom.gif)
 
 ## Usage
 
-First run.
+First run the below.
 
 ```console
 $ npm install @tremor/react tailwindcss postcss autoprefixer
-$ 
 $ npm run dev
 ```
 
