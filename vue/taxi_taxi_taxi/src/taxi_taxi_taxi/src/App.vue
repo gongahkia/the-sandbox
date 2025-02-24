@@ -1,42 +1,101 @@
 <template>
   <q-layout view="lHh Lpr lFf">
+    <q-header elevated class="glossy">
+      <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          @click="leftDrawerOpen = !leftDrawerOpen"
+          aria-label="Menu"
+          icon="menu"
+        />
+
+        <q-toolbar-title>
+          Quasar App
+        </q-toolbar-title>
+
+        <div>Quasar v{{ $q.version }}</div>
+      </q-toolbar>
+    </q-header>
+
+    <q-drawer
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      class="bg-grey-2"
+    >
+      <q-list>
+        <q-item-label header>Essential Links</q-item-label>
+        <q-item clickable tag="a" target="_blank" href="https://quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="school" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Docs</q-item-label>
+            <q-item-label caption>quasar.dev</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://github.com/quasarframework/">
+          <q-item-section avatar>
+            <q-icon name="code" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Github</q-item-label>
+            <q-item-label caption>github.com/quasarframework</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://chat.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="chat" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Discord Chat Channel</q-item-label>
+            <q-item-label caption>chat.quasar.dev</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://forum.quasar.dev">
+          <q-item-section avatar>
+            <q-icon name="forum" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Forum</q-item-label>
+            <q-item-label caption>forum.quasar.dev</q-item-label>
+          </q-item-section>
+        </q-item>
+        <q-item clickable tag="a" target="_blank" href="https://twitter.com/quasarframework">
+          <q-item-section avatar>
+            <q-icon name="rss_feed" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Twitter</q-item-label>
+            <q-item-label caption>@quasarframework</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-list>
+    </q-drawer>
+
     <q-page-container>
-      <q-page class="flex flex-center">
-        <div>
-          <h1 class="text-h4 q-mb-md">Singapore Taxi Availability</h1>
-          <fetch-button @fetch="fetchTaxiData" />
-          <taxi-list v-if="taxiData" :taxiData="taxiData" class="q-mt-md" />
-        </div>
-      </q-page>
+      <HelloWorld />
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
-import axios from 'axios';
-import TaxiList from './components/TaxiList.vue';
-import FetchButton from './components/FetchButton.vue';
+import { ref } from 'vue'
+import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
+  name: 'LayoutDefault',
+
   components: {
-    TaxiList,
-    FetchButton
+    HelloWorld
   },
-  data() {
+
+  setup () {
     return {
-      taxiData: null,
-    };
-  },
-  methods: {
-    async fetchTaxiData() {
-      try {
-        const response = await axios.get('https://api.data.gov.sg/v1/transport/taxi-availability');
-        this.taxiData = response.data.features[0].geometry.coordinates;
-      } catch (error) {
-        console.error('Error fetching taxi data:', error);
-      }
-    },
-  },
-};
+      leftDrawerOpen: ref(false)
+    }
+  }
+}
 </script>
