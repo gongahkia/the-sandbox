@@ -9,12 +9,26 @@ Shipped with [Quasar](https://quasar.dev/).
 ```console
 $ cd src/taxi_taxi_taxi
 $ npm install axios
+$ npm install quasar @quasar/extras
+$ npm install -D sass-loader@^10 sass
 $ npm run serve
-$ quasar dev
 ```
 
 ## Architecture
 
 ```mermaid
+sequenceDiagram
+    participant User
+    participant App
+    participant API
+    participant Quasar
+    participant Axios
 
+    User->>App: Interacts with UI
+    App->>Axios: Fetch taxi data
+    Axios->>API: Request taxi availability
+    API-->>Axios: Return taxi data
+    Axios-->>App: Send data to App
+    App->>Quasar: Render components
+    App->>User: Display taxi availability
 ```
