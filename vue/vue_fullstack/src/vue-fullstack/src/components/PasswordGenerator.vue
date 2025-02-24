@@ -17,7 +17,7 @@
 
 <script>
 import { ref, onMounted } from 'vue'
-import { supabase } from '../supabaseClient'
+import { supabase } from '../lib/supabaseClient'
 
 export default {
   setup() {
@@ -35,26 +35,26 @@ export default {
       password.value = result
     }
 
-    const savePassword = async () => {
-      if (!password.value || !description.value) {
-        message.value = 'Please generate a password and provide a description.'
-        return
-      }
+const savePassword = async () => {
+  if (!password.value || !description.value) {
+    message.value = 'Please generate a password and provide a description.'
+    return
+  }
 
-      const { data, error } = await supabase
-        .from('passwords')
-        .insert({ password: password.value, description: description.value })
-      
-      if (error) {
-        console.error('Error saving password:', error)
-        message.value = 'Error saving password. Please try again.'
-      } else {
-        message.value = 'Password saved successfully'
-        fetchPasswords()
-        password.value = ''
-        description.value = ''
-      }
+    const { error } = await supabase
+      .from('passwords')
+      .insert({ password: password.value, description: description.value })
+    
+    if (error) {
+      console.error('Error saving password:', error)
+      message.value = 'Error saving password. Please try again.'
+    } else {
+      message.value = 'Password saved successfully'
+      fetchPasswords()
+      password.value = ''
+      description.value = ''
     }
+  }
 
     const fetchPasswords = async () => {
       const { data, error } = await supabase
