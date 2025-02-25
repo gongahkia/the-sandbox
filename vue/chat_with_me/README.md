@@ -1,5 +1,7 @@
 # Chat with me
 
+[Vue.js](https://vuejs.org/) frontend web application that calls [WebLLM](https://webllm.mlc.ai/).
+
 ## Usage
 
 First place OpenAI key in `.env` file.
