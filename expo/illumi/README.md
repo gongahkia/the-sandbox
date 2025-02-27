@@ -11,15 +11,9 @@ Stores data with [Supabase](https://supabase.com/).
 ## Screenshots
 
 <div style="display: flex; justify-content: space-between;">
-  <img src="./1.jpg" width="32%">
-  <img src="./2.jpg" width="32%">
-  <img src="./3.jpg" width="32%">
-</div>
-
-<div style="display: flex; justify-content: space-between;">
-  <img src="./4.jpg" width="32%">
-  <img src="./5.jpg" width="32%">
-  <img src="./6.jpg" width="32%">
+  <img src="./login.png" width="32%">
+  <img src="./search.png" width="32%">
+  <img src="./library.png" width="32%">
 </div>
 
 ## Usage
@@ -46,11 +40,55 @@ Then scan the QR code with the [Camera app](https://docs.expo.dev/versions/lates
 ### DB
 
 ```mermaid
+erDiagram
+    user_auth {
+        UUID id PK
+        TEXT username 
+        TEXT password
+        TIMESTAMP created_at
+    }
+
+    user_profiles {
+        UUID id PK 
+        TEXT username 
+    }
+
+    user_books {
+        UUID id PK
+        UUID user_id FK
+        TEXT book_id
+        TEXT title
+        TEXT author
+        TEXT cover_url
+        TIMESTAMP date_added
+    }
+
+    user_auth ||--o{ user_profiles : "has"
+    user_auth ||--o{ user_books : "owns"
 
 ```
 
 ### Overview
 
 ```mermaid
+sequenceDiagram
+    participant User
+    participant ExpoApp
+    participant Supabase
+    participant OpenLibrary
 
+    User->>ExpoApp: Open App
+    User->>ExpoApp: Login/Register
+    ExpoApp->>Supabase: Check/Create User in user_auth table
+    Supabase-->>ExpoApp: User Authenticated
+    User->>ExpoApp: Search for Books
+    ExpoApp->>OpenLibrary: Fetch Book Data
+    OpenLibrary-->>ExpoApp: Return Book Data
+    User->>ExpoApp: Add Book to Library
+    ExpoApp->>Supabase: Insert Book into user_books table
+    Supabase-->>ExpoApp: Book Added
+    User->>ExpoApp: View My Library
+    ExpoApp->>Supabase: Fetch Books from user_books table
+    Supabase-->>ExpoApp: Return Book List
+    ExpoApp-->>User: Display Library
 ```
