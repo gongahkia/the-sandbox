@@ -7,7 +7,21 @@ export default function Library({ userId }) {
 
   useEffect(() => {
     fetchBooks();
-  }, []);
+
+    // Set up real-time subscription
+    const subscription = supabase
+      .from('user_books')
+      .on('*', (payload) => {
+        console.log('Change received!', payload);
+        fetchBooks(); // Refetch books when a change occurs
+      })
+      .subscribe();
+
+    // Clean up subscription on component unmount
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [userId]);
 
   async function fetchBooks() {
     if (!userId) return;
@@ -17,8 +31,11 @@ export default function Library({ userId }) {
       .select('*')
       .eq('user_id', userId);
 
-    if (error) console.error('Error fetching books:', error);
-    else setBooks(data);
+    if (error) {
+      console.error('Error fetching books:', error);
+    } else {
+      setBooks(data || []);
+    }
   }
 
   return (
