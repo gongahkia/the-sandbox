@@ -11,3 +11,10 @@ $ cd src/point-fingers
 $ npm i
 $ npm run dev
 ```
+
+## Screenshot
+
+![](./home.png)
+![](./about.png)
+![](./prompt.png)
+![](./result.png)
