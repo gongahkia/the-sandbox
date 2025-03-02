@@ -1,5 +1,6 @@
 import * as SecureStore from "expo-secure-store";
-import { EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY } from '@env';
+
+const EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY = "XXX"
 
 const tokenCache = {
   async getToken(key: string) {
