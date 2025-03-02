@@ -15,4 +15,6 @@ $ flutter run
 
 4. Open the demo on phone.
 
+## Screenshots
+
 ![](./demo.jpg)

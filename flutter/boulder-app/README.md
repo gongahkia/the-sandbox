@@ -2,6 +2,13 @@
 
 Basic Flutter app to track your bouldering sessions
 
+## Screenshots
+
+<div style="display: flex; justify-content: space-between;">
+  <img src="./1.jpg" width="47%">
+  <img src="./2.jpg" width="47%">
+</div>
+
 ## Usage
 
 1. Connect phone to laptop via USB.
@@ -9,12 +16,10 @@ Basic Flutter app to track your bouldering sessions
 3. Run the below.
 
 ```console
-$ cd template
+$ cd boulder_tracker_app
+$ flutter clean
+$ flutter pub get
 $ flutter run
 ```
 
 4. Open the demo on phone.
-
-![](./1.jpg)
-![](./2.jpg)
-![](./3.jpg)

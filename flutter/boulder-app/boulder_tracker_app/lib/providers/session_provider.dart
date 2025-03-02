@@ -1,7 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:bouldering_tracker/models/bouldering_session.dart';
+import 'package:boulder_tracker_app/models/bouldering_session.dart';
 
 class SessionProvider with ChangeNotifier {
   List<BoulderingSession> _sessions = [];

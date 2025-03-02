@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bouldering_tracker/providers/session_provider.dart';
-import 'package:bouldering_tracker/widgets/session_list.dart';
-import 'package:bouldering_tracker/screens/add_session_screen.dart';
+import 'package:boulder_tracker_app/providers/session_provider.dart';
+import 'package:boulder_tracker_app/widgets/session_list.dart';
+import 'package:boulder_tracker_app/screens/add_session_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

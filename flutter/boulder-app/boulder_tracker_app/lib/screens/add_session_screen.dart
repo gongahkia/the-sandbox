@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:bouldering_tracker/widgets/add_session_form.dart';
+import 'package:boulder_tracker_app/widgets/add_session_form.dart';
 
 class AddSessionScreen extends StatelessWidget {
   @override

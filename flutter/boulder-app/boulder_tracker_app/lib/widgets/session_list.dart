@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:bouldering_tracker/providers/session_provider.dart';
-import 'package:bouldering_tracker/models/bouldering_session.dart';
+import 'package:boulder_tracker_app/providers/session_provider.dart';
+import 'package:boulder_tracker_app/models/bouldering_session.dart';
 
 class SessionList extends StatelessWidget {
   @override

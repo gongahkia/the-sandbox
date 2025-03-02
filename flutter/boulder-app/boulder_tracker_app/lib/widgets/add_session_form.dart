@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:uuid/uuid.dart';
-import 'package:bouldering_tracker/constants.dart';
-import 'package:bouldering_tracker/models/bouldering_session.dart';
-import 'package:bouldering_tracker/providers/session_provider.dart';
+import 'package:boulder_tracker_app/constants.dart';
+import 'package:boulder_tracker_app/models/bouldering_session.dart';
+import 'package:boulder_tracker_app/providers/session_provider.dart';
 
 class AddSessionForm extends StatefulWidget {
   @override
