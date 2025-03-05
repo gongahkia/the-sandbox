@@ -18,7 +18,8 @@ class AuthService extends ChangeNotifier {
       if (authResponse.user == null) throw Exception('Signup failed');
 
       // Then, get or create user in our custom users table
-      final response = await _supabase.rpc('get_or_create_user_id', params: {'p_email': email});
+      final response = await _supabase.rpc('get_or_create_user_id', 
+        params: {'p_email': email, 'p_password': password});
       final userId = response as int;
 
       // Fetch the user details from the users table

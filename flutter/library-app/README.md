@@ -30,10 +30,40 @@ $ flutter run
 
 ## Architecture 
 
-```mermaid
+### DB
 
+```mermaid
+erDiagram
+    USERS {
+        bigint id PK
+        text email
+        text password
+        uuid auth_uid
+        timestamp created_at
+    }
+    FAVORITES {
+        bigint id PK
+        bigint user_id FK
+        text book_key
+        text title
+        text author
+        timestamp created_at
+    }
+    USERS ||--o{ FAVORITES : has
 ```
 
-## Screenshots
+### Overview
 
-![](./demo.jpg)
+```mermaid
+sequenceDiagram
+    participant FA as Flutter App
+    participant SA as Supabase Auth
+    participant SD as Supabase Database
+    participant OL as OpenLibrary API
+
+    FA->>SA: User Registration/Login
+    SA->>SD: Store User Data
+    FA->>SD: Fetch Favorites
+    FA->>OL: Search Books
+    FA->>SD: Add Favorites
+```
