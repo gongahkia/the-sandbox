@@ -74,4 +74,16 @@ class AuthService extends ChangeNotifier {
       rethrow;
     }
   }
+
+  Future<void> setUserFromSession(Session session) async {
+    final userData = await Supabase.instance.client
+        .from('users')
+        .select()
+        .eq('auth_uid', session.user!.id)
+        .single();
+    
+    _user = User.fromJson(userData);
+    notifyListeners();
+  }
+
 }
