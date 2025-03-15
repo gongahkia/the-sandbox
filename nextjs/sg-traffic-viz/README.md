@@ -11,7 +11,3 @@ $ cd src/sg-traffic-viz
 $ npm i
 $ npm run dev
 ```
-
-## Screenshots
-
-![](traffic.png)

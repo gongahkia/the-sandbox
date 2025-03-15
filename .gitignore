@@ -263,3 +263,10 @@ playground.xcworkspace
 *.lock
 node_modules
 .Trash-*
+*.local
+*.log*
+node_modules
+dist/
+.vscode/*
+!.vscode/extensions.json
+.idea
