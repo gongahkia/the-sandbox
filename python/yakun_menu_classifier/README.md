@@ -33,5 +33,3 @@ graph TD
 ## Other comments
 
 For consistency and standardisation, *"Ya Kun menu items"* for the purposes of this project were limited to those scraped from the [Ya Kun website](https://app.yakun.com/menu.html) as of 5:29pm on 28 January 2025.
-
-![](./asset/logo/me.gif)

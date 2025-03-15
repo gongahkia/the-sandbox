@@ -22,7 +22,3 @@ $ make
 | Move Right| `D`              | Right Arrow (`→`)  |
 | Jump     | `W`               | Up Arrow (`↑`)     |
 | Drop trail / bomb    | `F`               | Down Arrow (`0`)   |
-
-## Screenshots
-
-![](./asset/nita.png)
