@@ -12,6 +12,8 @@ GOOGLE_SHEET_NAME=XXX
 GOOGLE_CREDENTIALS_FILE=XXX
 ```
 
+Also integrates with [`google sweet`](https://github.com/gongahkia/the-sandbox/tree/main/javascript/googleSweetExtension).
+
 ## Architecture
 
 ```mermaid
