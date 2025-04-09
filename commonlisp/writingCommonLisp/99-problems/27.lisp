@@ -1,0 +1,20 @@
+;;; problem 27
+
+(defun group3 (lst)
+  (mapcan (lambda (x)
+            (mapcan (lambda (y)
+                      (mapcar (lambda (z) (list x y z))
+                              (combination 4 (set-difference lst (append x y)))))
+                    (combination 3 (set-difference lst x))))
+          (combination 2 lst)))
+
+(defun group (lst sizes)
+  (labels ((group-helper (lst sizes)
+             (if (null sizes)
+                 (list nil)
+                 (mapcan (lambda (subset)
+                           (mapcar (lambda (rest)
+                                     (cons subset rest))
+                                   (group-helper (set-difference lst subset) (cdr sizes))))
+                         (combination (car sizes) lst)))))
+    (group-helper lst sizes)))

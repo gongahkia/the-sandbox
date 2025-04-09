@@ -1,0 +1,63 @@
+<div>
+  <div>
+    <label>
+      <input type="radio" [(ngModel)]="inputMethod" value="manual">
+      Manual Input
+    </label>
+    <label>
+      <input type="radio" [(ngModel)]="inputMethod" value="ticker">
+      Submit Stock Ticker
+    </label>
+  </div>
+
+  <form *ngIf="inputMethod === 'ticker'" (ngSubmit)="handleSubmit()">
+    <input type="text" [(ngModel)]="ticker" name="ticker" placeholder="Enter stock ticker">
+    <button type="submit">Submit</button>
+  </form>
+
+  <p *ngIf="inputMethod === 'ticker'">Note: Due to Alpha Vantage's 25 request/day limit, stock data is only fetched when you submit a ticker.</p>
+
+  <p *ngIf="inputMethod === 'ticker' && !isValidTicker(submittedTicker)">Please enter a valid ticker symbol.</p>
+  <p *ngIf="inputMethod === 'ticker' && error">Error fetching data for {{submittedTicker}}.</p>
+
+  <div *ngIf="inputMethod === 'ticker' && (isLoading || loadingProgress < 100)">
+    <p>Fetching {{submittedTicker}} data... {{loadingProgress}}%</p>
+  </div>
+
+  <div *ngIf="inputMethod === 'ticker' && data && data['05. price']">
+    <h2>{{submittedTicker}} Stock Price</h2>
+    <p>${{parseFloat(data['05. price']).toFixed(2)}}</p>
+    <p *ngIf="data['07. latest trading day']">Last updated: {{data['07. latest trading day']}}</p>
+  </div>
+
+  <div>
+    Stock Price:
+    <input *ngIf="inputMethod === 'manual'" [(ngModel)]="inputs.stockPrice" type="number" placeholder="Stock Price">
+    <br>
+    Strike Price:
+    <input [(ngModel)]="inputs.strikePrice" type="number" placeholder="Strike Price">
+    <br>
+    Time to Expiration:
+    <input [(ngModel)]="inputs.timeToExpiration" type="number" placeholder="Time to Expiration (years)">
+    <br>
+    Interest Rate:
+    <input [(ngModel)]="inputs.interestRate" type="number" placeholder="Interest Rate (decimal)">
+    <br>
+    Volatility:
+    <input [(ngModel)]="inputs.volatility" type="number" placeholder="Volatility (decimal)">
+    <br>
+    Option Type:
+    <select [(ngModel)]="inputs.optionType">
+      <option value="call">Call</option>
+      <option value="put">Put</option>
+    </select>
+    <br>
+    <button (click)="calculateOption()">Calculate Option</button>
+  </div>
+
+  <div *ngIf="result">
+    <h2>Option Calculation Result</h2>
+    <p>Option Price: ${{result.optionPrice.toFixed(2)}}</p>
+    <p>Last calculated at {{result.timestamp | date:'medium'}}</p>
+  </div>
+</div>

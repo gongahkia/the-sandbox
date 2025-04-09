@@ -1,0 +1,96 @@
+[gd_scene load_steps=5 format=3 uid="uid://dcij67hoi1frj"]
+
+[ext_resource type="PackedScene" uid="uid://btjoovlo4qdvo" path="res://character_body_2d.tscn" id="1_eyyr8"]
+[ext_resource type="Script" path="res://main_game.gd" id="1_li6k7"]
+[ext_resource type="PackedScene" uid="uid://dy0rseuoh6q7p" path="res://tree.tscn" id="2_jy085"]
+
+[sub_resource type="Curve2D" id="Curve2D_f0q6b"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -206, -33, 0, 0, 0, 0, 2005, -31, 0, 0, 0, 0, 2007, 1262, 0, 0, 0, 0, -213, 1276, 0, 0, 0, 0, -211, -31)
+}
+point_count = 5
+
+[node name="main_game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_li6k7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+offset_left = 2.0
+offset_top = 6.0
+offset_right = 1918.0
+offset_bottom = 1089.0
+
+[node name="jonathan" parent="." instance=ExtResource("1_eyyr8")]
+position = Vector2(964, 748)
+
+[node name="Path2D" type="Path2D" parent="jonathan"]
+position = Vector2(-964, -748)
+curve = SubResource("Curve2D_f0q6b")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="jonathan/Path2D"]
+position = Vector2(-206, -33)
+rotation = 0.000904568
+
+[node name="PineTree" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(1581, 854)
+
+[node name="PineTree2" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(1074, 608)
+
+[node name="PineTree4" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(627, 736)
+
+[node name="PineTree5" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(917, 345)
+
+[node name="PineTree6" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(322, 630)
+
+[node name="PineTree7" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(1575, 257)
+
+[node name="PineTree8" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(235, 416)
+
+[node name="PineTree3" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(493, 209)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.193
+autostart = true
+
+[node name="game_over" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="game_over"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.701961)
+
+[node name="Label" type="Label" parent="game_over/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.0
+offset_top = -11.5
+offset_right = 26.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "BALLS "
+horizontal_alignment = 1
+vertical_alignment = 1
+uppercase = true
+
+[connection signal="health_gone" from="jonathan" to="." method="_on_jonathan_health_gone"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

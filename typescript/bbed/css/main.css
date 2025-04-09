@@ -1,0 +1,63 @@
+/* basic style options */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+.pastelPink {
+    color:#D291BC;
+}
+
+.pastelPurple {
+    color:#957DAD;
+}
+
+.pastelBlue {
+    color:#abc4ff;
+}
+
+.pastelGreen {
+    color:#adf7b6;
+}
+
+body {
+    font-family: 'Fira Code', monospace;
+}
+
+.entryScreen {
+    display:flex;
+    justify-content:center;
+}
+
+.mainScreen {
+    display:flex;
+}
+
+#title {
+    font-size:2rem;
+    text-align:center;
+    margin-top:280px;
+}
+
+#loadFile {
+    font-size:1rem;    
+    text-align:center;
+}
+
+#saveFileButton {
+    font-size:1rem;
+    text-align:center;
+    background:transparent;
+}
+
+#labelLoadFile {
+    margin-left:200px;
+}
+
+.hidden {
+    color:white;
+}
+
+.localTextArea {
+    font-family: 'Fira Code', monospace;
+    font-size:1rem;
+    resize:none;
+}

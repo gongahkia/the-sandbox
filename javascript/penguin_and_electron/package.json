@@ -1,0 +1,17 @@
+{
+  "name": "penguin_and_electron",
+  "version": "1.0.0",
+  "description": "```console\r $ npm i\r $ npm start\r ```",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.8.1",
+    "electron": "^34.3.0"
+  }
+}

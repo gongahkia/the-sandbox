@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thomas the Tank Engine x Ruby on Rails Fanclub</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1.5em;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 2em auto;
+      padding: 0 1em;
+      text-align: center;
+    }
+    .fanclub-description {
+      font-size: 1.2em;
+      color: #555;
+      margin-bottom: 2em;
+    }
+    .cta-button {
+      background-color: #f39c12;
+      color: white;
+      padding: 0.8em 1.5em;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .cta-button:hover {
+      background-color: #e67e22;
+    }
+    .characters {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+    }
+    .character {
+      margin: 1em;
+      text-align: center;
+      width: 200px;
+    }
+    .character img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    footer {
+      background-color: #003366;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 3em;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Thomas the Tank Engine x Ruby on Rails Fanclub</h1>
+  </header>
+
+  <div class="container">
+    <div class="fanclub-description">
+      <p>Welcome to the ultimate fanclub where we combine the magic of Thomas the Tank Engine with the power of Ruby on Rails! Join us in celebrating two of the most iconic things on the planet.</p>
+      <p>Get ready for exciting updates, fun facts, and a whole lot of love for Thomas and his friends. All aboard!</p>
+    </div>
+
+    <button class="cta-button" onclick="alert('You are now a member of the Thomas x Rails Fanclub!')">Join the Fanclub!</button>
+
+    <div class="characters">
+      <div class="character">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Thomas_the_Tank_Engine.png" alt="Thomas the Tank Engine">
+        <p>Thomas the Tank Engine</p>
+      </div>
+      <div class="character">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/James_the_red_engine.png" alt="James the Red Engine">
+        <p>James the Red Engine</p>
+      </div>
+      <div class="character">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Emily_the_Engine.png" alt="Emily the Engine">
+        <p>Emily the Engine</p>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; <%= Time.now.year %> Thomas the Tank Engine x Ruby on Rails Fanclub. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

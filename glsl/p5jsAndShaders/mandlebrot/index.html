@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>p5.js and shaders (mandelbrot)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+<body>
+    <script>
+        let myShader;
+
+        function preload() {
+            myShader = loadShader('mandelbrot.vert', 'mandelbrot.frag', 
+                () => console.log('Shader loaded successfully!'), 
+                (error) => console.error('Error loading shader:', error)
+            );
+        }
+
+        function setup() {
+            createCanvas(windowWidth, windowHeight, WEBGL); 
+            noStroke(); 
+        }
+
+        function draw() {
+            myShader.setUniform('u_time', millis() / 1000);
+            myShader.setUniform('u_resolution', [width, height]);
+            shader(myShader);
+            rect(-width / 2, -height / 2, width, height); 
+        }
+    </script>
+</body>
+</html>

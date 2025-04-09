@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcij67hoi1frj"]
+
+[ext_resource type="PackedScene" uid="uid://btjoovlo4qdvo" path="res://character_body_2d.tscn" id="1_eyyr8"]
+[ext_resource type="PackedScene" uid="uid://dy0rseuoh6q7p" path="res://tree.tscn" id="2_jy085"]
+[ext_resource type="PackedScene" uid="uid://c1wh460hd64a3" path="res://david.tscn" id="3_inyop"]
+
+[node name="main_game" type="Node2D"]
+y_sort_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 2.0
+offset_top = -1.0
+offset_right = 715.0
+offset_bottom = 438.0
+
+[node name="jonathan" parent="." instance=ExtResource("1_eyyr8")]
+position = Vector2(446, 61)
+
+[node name="PineTree" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(160, 237)
+
+[node name="PineTree2" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(578, 258)
+
+[node name="PineTree3" parent="." instance=ExtResource("2_jy085")]
+position = Vector2(417, 62)
+
+[node name="david" parent="." instance=ExtResource("3_inyop")]

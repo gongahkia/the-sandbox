@@ -1,0 +1,9 @@
+(A) Add a function within helper.py to read the texture atlas for the sprites and tying those texture atlas coordinates to the python sprite as relevant, store those values within a local json @renderer @core
+(A) Use enums to represent the different block types within helper.py @renderer @core
+(A) Completely debug and implement the renderer within helper.py @renderer @core
+(A) Add basic player movement within helper.py @renderer @core
+(A) Add renderer that allows displaying of the player HUD @renderer @core
+(A) Add serialization and deserialization functions that can read a txt file that specifies terrian and serializes that to a json of (X,Y,Z) coordinates, but must consider how a pure txt file will render the different z layers @renderer @core
+(A) Add chunking functions to allow for different layers to be rendered smoothly @renderer @core
+(B) Implement main game loop @game @core
+(C) References include Spelunky, Minicraft, Binding of Isaac and Hades @reference @idea

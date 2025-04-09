@@ -1,0 +1,1 @@
+A4P: Write a program that does image recognition training on profile pictures and webscraping on whatsapp and linkedin profiles and banners, and automatically flags out new numbers where the pfp looks like an Insurance agent or has blacklisted words in the banner;;; can add a suspicion meter also, make it a browser extension

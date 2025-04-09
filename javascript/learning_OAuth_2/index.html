@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning OAuth 2.0 through an Expenses Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ExpenseTracker</h1>
+            <div id="user-section">
+                <button id="login-btn" onclick="authorize()">Login</button>
+                <div id="user-info" style="display: none;">
+                    <span id="username"></span>
+                    <button id="logout-btn" onclick="logout()">Logout</button>
+                </div>
+            </div>
+        </header>
+
+        <main id="app-content" style="display: none;">
+            <section class="expense-form">
+                <h2>Add New Expense</h2>
+                <form id="expense-form">
+                    <div class="form-group">
+                        <label for="description">Description</label>
+                        <input type="text" id="description" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category">
+                            <option value="food">Food</option>
+                            <option value="transportation">Transportation</option>
+                            <option value="entertainment">Entertainment</option>
+                            <option value="utilities">Utilities</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Date</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit">Add Expense</button>
+                </form>
+            </section>
+
+            <section class="expenses-list">
+                <h2>Your Expenses</h2>
+                <div class="summary">
+                    <p>Total: $<span id="total-amount">0.00</span></p>
+                </div>
+                <table id="expenses-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Description</th>
+                            <th>Category</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenses-body">
+                        <!-- Expenses will be added here dynamically -->
+                    </tbody>
+                </table>
+            </section>
+        </main>
+
+        <div id="login-message" class="login-message">
+            <h2>Welcome to ExpenseTracker</h2>
+            <p>Please login to track your expenses</p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
