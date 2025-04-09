@@ -8,8 +8,6 @@ Uses Overwolf's event definitions for BMW per [here](https://dev.overwolf.com/ow
 
 Uses OCR to extract the Bossname and a hardcoded timer to track the dodge recharge.
 
-![](./neat.png)
-
 ## Architecture
 
 ```mermaid

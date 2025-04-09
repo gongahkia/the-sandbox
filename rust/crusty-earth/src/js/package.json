@@ -1,0 +1,18 @@
+{
+  "name": "geo-dashboard-web",
+  "version": "1.0.0",
+  "description": "Interactive Geospatial Dashboard with Rust and WebAssembly",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve",
+    "build": "webpack --mode=production"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "webpack": "^5.76.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.11.1"
+  }
+}
+
