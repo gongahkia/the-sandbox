@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Impact", sans-serif;
+}
+
+.shadow-neobrutalist {
+  box-shadow: 8px 8px 0 rgba(0, 0, 0, 1);
+}

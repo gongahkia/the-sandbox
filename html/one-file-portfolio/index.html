@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel's Portfolio</title>
+    <style>
+        /* Tailwind-like utility classes */
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .h-full { height: 100%; }
+        .h-screen { height: 100vh; }
+        .h-36 { height: 9rem; }
+        .h-4 { height: 1rem; }
+        .h-5 { height: 1.25rem; }
+        .h-3 { height: 0.75rem; }
+        .h-2 { height: 0.5rem; }
+        .w-full { width: 100%; }
+        .w-36 { width: 9rem; }
+        .w-4 { width: 1rem; }
+        .w-5 { width: 1.25rem; }
+        .w-3 { width: 0.75rem; }
+        .max-w-6xl { max-width: 72rem; }
+        .max-w-\[180px\] { max-width: 180px; }
+        .flex-col { flex-direction: column; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-between: space-between; }
+        .gap-4 { gap: 1rem; }
+        .gap-2 { gap: 0.5rem; }
+        .space-x-2 > * + * { margin-left: 0.5rem; }
+        .space-x-3 > * + * { margin-left: 0.75rem; }
+        .rounded-3xl { border-radius: 1.5rem; }
+        .rounded-2xl { border-radius: 1rem; }
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-lg { border-radius: 0.5rem; }
+        .rounded-full { border-radius: 9999px; }
+        .bg-lavender-100 { background-color: #F1EAFF; }
+        .bg-white { background-color: #FFFFFF; }
+        .bg-lavender-50 { background-color: #F8F6FF; }
+        .bg-lavender-300 { background-color: #C8B6E2; }
+        .bg-lavender-400 { background-color: #B39DCC; }
+        .bg-lavender-500 { background-color: #9D84B7; }
+        .bg-lavender-200 { background-color: #E4D9FF; }
+        .text-lavender-700 { color: #725891; }
+        .text-lavender-600 { color: #8A6CA6; }
+        .text-white { color: #FFFFFF; }
+        .p-4 { padding: 1rem; }
+        .p-2 { padding: 0.5rem; }
+        .p-1 { padding: 0.25rem; }
+        .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+        .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+        .px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+        .py-0\.5 { padding-top: 0.125rem; padding-bottom: 0.125rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-xl { font-size: 1.25rem; }
+        .text-sm { font-size: 0.875rem; }
+        .text-xs { font-size: 0.75rem; }
+        .text-lg { font-size: 1.125rem; }
+        .text-\[10px\] { font-size: 10px; }
+        .font-bold { font-weight: 700; }
+        .font-medium { font-weight: 500; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+        .relative { position: relative; }
+        .overflow-y-auto { overflow-y: auto; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mr-2 { margin-right: 0.5rem; }
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-1 { margin-top: 0.25rem; }
+        .mt-auto { margin-top: auto; }
+
+        /* Custom styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .max-h-\[800px\] {
+            max-height: 800px;
+        }
+        .grid-cols-1 {
+            grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
+        .w-\[85\%\] { width: 85%; }
+        .w-\[75\%\] { width: 75%; }
+        .w-\[90\%\] { width: 90%; }
+        .w-\[65\%\] { width: 65%; }
+
+        /* Responsive styles */
+        @media (min-width: 640px) {
+            .sm\:grid-cols-2 {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+            .sm\:row-span-2 {
+                grid-row: span 2 / span 2;
+            }
+            .sm\:col-span-2 {
+                grid-column: span 2 / span 2;
+            }
+        }
+        @media (min-width: 768px) {
+            .md\:p-6 {
+                padding: 1.5rem;
+            }
+        }
+        @media (min-width: 1024px) {
+            .lg\:grid-cols-3 {
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+            }
+            .lg\:col-span-1 {
+                grid-column: span 1 / span 1;
+            }
+        }
+
+        /* Custom scrollbar styles */
+        .overflow-y-auto {
+            scrollbar-width: thin;
+            scrollbar-color: #9D84B7 #F1EAFF;
+        }
+        .overflow-y-auto::-webkit-scrollbar {
+            width: 6px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-track {
+            background: #F1EAFF;
+            border-radius: 20px;
+        }
+        .overflow-y-auto::-webkit-scrollbar-thumb {
+            background-color: #9D84B7;
+            border-radius: 20px;
+            border: 3px solid #F1EAFF;
+        }
+    </style>
+</head>
+<body>
+    <main class="flex h-screen w-full bg-lavender-100 p-4 sm:items-center sm:justify-center">
+        <div class="m-auto grid h-full max-h-[800px] w-full max-w-6xl grid-cols-1 gap-4 rounded-3xl bg-white p-4 shadow-lg sm:grid-cols-2 lg:grid-cols-3 md:p-6">
+            <!-- Left column - Profile -->
+            <div class="flex flex-col justify-between rounded-2xl bg-lavender-50 p-4 sm:row-span-2 md:p-6">
+                <div>
+                    <div class="mb-4 flex items-center justify-between">
+                        <h1 class="text-2xl font-bold text-lavender-700">@gabriel</h1>
+                        <div class="flex space-x-2">
+                            <div class="h-4 w-4 rounded-full bg-lavender-300"></div>
+                            <div class="h-4 w-4 rounded-full bg-lavender-400"></div>
+                            <div class="h-4 w-4 rounded-full bg-lavender-500"></div>
+                        </div>
+                    </div>
+
+                    <div class="mx-auto mb-4 flex max-w-[180px] justify-center">
+                        <div class="relative h-36 w-36">
+                            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" class="h-full w-full">
+                                <path fill="#9D84B7" d="M100,20 C120,20 140,30 160,60 C180,90 160,140 120,160 C80,180 40,160 20,120 C0,80 20,40 60,20 C80,10 90,20 100,20 Z" />
+                                <path fill="white" d="M100,40 C115,40 130,50 145,70 C160,90 145,130 115,145 C85,160 55,145 40,115 C25,85 40,55 70,40 C85,32.5 92.5,40 100,40 Z" />
+                                <path fill="#9D84B7" d="M70,80 C75,75 85,80 90,85 M110,85 C115,80 125,75 130,80 M80,110 C90,120 110,120 120,110" stroke-width="6" stroke="#9D84B7" stroke-linecap="round" fill="none" />
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="mb-4 text-center">
+                        <h2 class="text-xl font-bold text-lavender-700">Gabriel</h2>
+                        <p class="text-sm text-lavender-600">Full Stack Developer</p>
+                    </div>
+
+                    <div class="mb-4 flex flex-wrap justify-center gap-2">
+                        <span class="rounded-full bg-lavender-200 px-3 py-1 text-xs font-medium text-lavender-700">React</span>
+                        <span class="rounded-full bg-lavender-200 px-3 py-1 text-xs font-medium text-lavender-700">Next.js</span>
+                        <span class="rounded-full bg-lavender-200 px-3 py-1 text-xs font-medium text-lavender-700">TypeScript</span>
+                        <span class="rounded-full bg-lavender-200 px-3 py-1 text-xs font-medium text-lavender-700">Node.js</span>
+                    </div>
+                </div>
+
+                <div class="mt-auto">
+                    <div class="flex justify-center space-x-3">
+                        <a href="#" class="rounded-full bg-lavender-500 p-2 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="#" class="rounded-full bg-lavender-500 p-2 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        </a>
+                        <a href="#" class="rounded-full bg-lavender-500 p-2 text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle column - Projects -->
+            <div class="flex flex-col rounded-2xl bg-lavender-50 p-4 sm:row-span-2 md:p-6">
+                <div class="mb-4 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2 h-5 w-5 text-lavender-500"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
+                    <h2 class="text-lg font-bold text-lavender-700">Projects</h2>
+                </div>
+
+                <div class="grid flex-1 gap-3 overflow-y-auto">
+                    <div class="rounded-xl bg-white p-3 shadow-sm">
+                        <div class="mb-2 flex items-center justify-between">
+                            <h3 class="font-medium text-lavender-700">Portfolio Website</h3>
+                            <div class="rounded-full bg-lavender-200 p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 text-lavender-600"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                            </div>
+                        </div>
+                        <p class="text-xs text-lavender-600">A playful, minimalist portfolio showcasing my work and skills.</p>
+                        <div class="mt-2 flex gap-1">
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">Next.js</span>
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">Tailwind</span>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl bg-white p-3 shadow-sm">
+                        <div class="mb-2 flex items-center justify-between">
+                            <h3 class="font-medium text-lavender-700">E-commerce App</h3>
+                            <div class="rounded-full bg-lavender-200 p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 text-lavender-600"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                        </div>
+                        <p class="text-xs text-lavender-600">Full-stack e-commerce platform with payment integration.</p>
+                        <div class="mt-2 flex gap-1">
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">React</span>
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">Node.js</span>
+                        </div>
+                    </div>
+
+                    <div class="rounded-xl bg-white p-3 shadow-sm">
+                        <div class="mb-2 flex items-center justify-between">
+                            <h3 class="font-medium text-lavender-700">Weather Dashboard</h3>
+                            <div class="rounded-full bg-lavender-200 p-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-3 w-3 text-lavender-600"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                            </div>
+                        </div>
+                        <p class="text-xs text-lavender-600">Interactive weather app with location-based forecasts.</p>
+                        <div class="mt-2 flex gap-1">
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">JavaScript</span>
+                            <span class="rounded-full bg-lavender-100 px-2 py-0.5 text-[10px] text-lavender-600">API</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right column - About & Skills -->
+            <div class="flex flex-col gap-4 sm:col-span-2 lg:col-span-1">
+                <div class="rounded-2xl bg-lavender-50 p-4 md:p-6">
+                    <div class="mb-3 flex items-center">
+                        <div class="mr-2 h-5 w-5 rounded-full bg-lavender-300 p-1">
+                            <svg viewBox="0 0 24 24" class="h-full w-full text-white">
+                                <path fill="currentColor" d="M12 1L15.5 8.5H22L16.5 13.5L18.5 21L12 17L5.5 21L7.5 13.5L2 8.5H8.5L12 1Z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-bold text-lavender-700">About Me</h2>
+                    </div>
+
+                    <div class="space-y-2">
+                        <p class="text-sm text-lavender-600">Full-stack developer with a passion for creating playful, user-friendly applications.</p>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-medium text-lavender-700">Creative</span>
+                            <span class="text-sm font-medium text-lavender-700">Thoughtful</span>
+                            <span class="text-sm font-medium text-lavender-700">& Playful</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rounded-2xl bg-lavender-50 p-4 md:p-6">
+                    <div class="mb-3 flex items-center">
+                        <div class="mr-2 h-5 w-5 rounded-full bg-lavender-300 p-1">
+                            <svg viewBox="0 0 24 24" class="h-full w-full text-white">
+                                <path fill="currentColor" d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-2a8 8 0 100-16 8 8 0 000 16zm-1-5h2v2h-2v-2zm0-8h2v6h-2V7z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-bold text-lavender-700">Skills</h2>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-2">
+                        <div class="rounded-lg bg-white p-2 shadow-sm">
+                            <h3 class="text-xs font-medium text-lavender-700">Frontend</h3>
+                            <div class="mt-1 h-2 w-full rounded-full bg-lavender-200">
+                                <div class="h-2 w-[85%] rounded-full bg-lavender-500"></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-lg bg-white p-2 shadow-sm">
+                            <h3 class="text-xs font-medium text-lavender-700">Backend</h3>
+                            <div class="mt-1 h-2 w-full rounded-full bg-lavender-200">
+                                <div class="h-2 w-[75%] rounded-full bg-lavender-500"></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-lg bg-white p-2 shadow-sm">
+                            <h3 class="text-xs font-medium text-lavender-700">UI/UX</h3>
+                            <div class="mt-1 h-2 w-full rounded-full bg-lavender-200">
+                                <div class="h-2 w-[90%] rounded-full bg-lavender-500"></div>
+                            </div>
+                        </div>
+
+                        <div class="rounded-lg bg-white p-2 shadow-sm">
+                            <h3 class="text-xs font-medium text-lavender-700">DevOps</h3>
+                            <div class="mt-1 h-2 w-full rounded-full bg-lavender-200">
+                                <div class="h-2 w-[65%] rounded-full bg-lavender-500"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

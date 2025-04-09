@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+</head>
+<body>
+  <h2>Insert Text</h2>
+  <input type="text" id="inputText" placeholder="Enter text here">
+  <button onclick="insert()">Insert Text</button>
+
+  <script>
+    function insert() {
+      const text = document.getElementById('inputText').value;
+      google.script.run.insertText(text);
+      google.script.host.close();
+    }
+  </script>
+</body>
+</html>

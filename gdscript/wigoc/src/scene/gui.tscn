@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://u0swheig4x75"]
+
+[ext_resource type="Script" path="res://script/game.gd" id="1_dmts8"]
+
+[node name="gui" type="Node2D"]
+script = ExtResource("1_dmts8")
+
+[node name="background" type="ColorRect" parent="."]
+offset_right = 1360.0
+offset_bottom = 960.0
+color = Color(0.116167, 0.34, 0.0714, 1)
+
+[node name="debug_button" type="Button" parent="."]
+offset_left = 1211.0
+offset_top = 66.0
+offset_right = 1268.0
+offset_bottom = 97.0
+scale = Vector2(2.25959, 2.25959)
+text = "debug
+"
+
+[node name="board" type="ColorRect" parent="."]
+offset_left = 200.0
+offset_right = 1160.0
+offset_bottom = 960.0
+
+[node name="board_grid" type="GridContainer" parent="board"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 960.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 8
+
+[connection signal="pressed" from="debug_button" to="." method="_on_debug_button_pressed"]

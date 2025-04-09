@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keep talking bro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <h1 align="center">Keep talking bro</h1>
+            <p align="center">Someday you'll get it</p>
+            <p>Made by <a href="https://github.com/gongahkia" target="_blank">@gongahkia</a></p>
+        </div>
+        <div class="card-content">
+            <div class="input-group">
+                <textarea 
+                    id="textInput" 
+                    placeholder="Enter your text here..."
+                    rows="5"
+                ></textarea>
+            </div>
+
+            <div class="toggle-group">
+                <label class="switch">
+                    <input type="checkbox" id="verboseToggle">
+                    <span class="slider"></span>
+                </label>
+                <label for="verboseToggle">Add filler words</label>
+            </div>
+
+            <div class="controls">
+                <div id="modeDisplay" class="mode-display">
+                    Concise mode: ON
+                </div>
+                <button id="playButton" class="button" disabled>
+                    <svg class="play-icon" viewBox="0 0 24 24" width="24" height="24">
+                        <polygon points="5,3 19,12 5,21" />
+                    </svg>
+                    <span>Play</span>
+                </button>
+            </div>
+
+            <div class="preview">
+                <p id="processedText">Processed text will appear here...</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

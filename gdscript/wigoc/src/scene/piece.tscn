@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b377vnunfn573"]
+
+[ext_resource type="Script" path="res://script/piece.gd" id="1_asoq8"]
+[ext_resource type="Texture2D" uid="uid://moyt2ffjjnim" path="res://asset/piece/white/white_alligator.png" id="2_fti6a"]
+
+[node name="piece" type="Node2D"]
+script = ExtResource("1_asoq8")
+
+[node name="icon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(80, 80)
+offset_right = 1466.0
+offset_bottom = 1466.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_fti6a")
