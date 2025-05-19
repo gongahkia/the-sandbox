@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Learning Open Payments</title>
+    <style>
+        .container { max-width: 600px; margin: 2rem auto; padding: 20px; }
+        .payment-form { margin-bottom: 2rem; border: 1px solid #ccc; padding: 20px; }
+        input[type="text"] { width: 100%; padding: 8px; margin: 5px 0; }
+        button { background: #0069d9; color: white; padding: 10px 20px; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="payment-form">
+            <h2>Create Payment Request</h2>
+            <input type="number" id="amount" placeholder="Amount" step="0.01">
+            <button onclick="createPaymentRequest()">Generate Payment Link</button>
+            <div id="paymentDetails" style="margin-top: 20px;"></div>
+        </div>
+
+        <div class="payment-form">
+            <h2>Fulfill Payment</h2>
+            <input type="text" id="paymentUrl" placeholder="Payment URL">
+            <button onclick="executePayment()">Send Payment</button>
+            <div id="paymentStatus" style="margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <script>
+        async function createPaymentRequest() {
+            const amount = document.getElementById('amount').value;
+            const response = await fetch('/create-payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ amount })
+            });
+            
+            const payment = await response.json();
+            document.getElementById('paymentDetails').innerHTML = `
+                <p>Payment URL: <code>${payment.url}</code></p>
+                <p>Shared Secret: <code>${payment.sharedSecret}</code></p>
+            `;
+        }
+
+        async function executePayment() {
+            const paymentUrl = document.getElementById('paymentUrl').value;
+            const response = await fetch('/execute-payment', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ paymentUrl })
+            });
+            
+            const result = await response.json();
+            document.getElementById('paymentStatus').innerHTML = 
+                result.success ? 'Payment successful!' : 'Payment failed';
+        }
+    </script>
+</body>
+</html>
