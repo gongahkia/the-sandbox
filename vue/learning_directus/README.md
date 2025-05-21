@@ -38,8 +38,5 @@ flowchart TD
     EXT -. Custom logic, panels, hooks .-> D
     UP -. User uploads, images, docs .-> D
 
-    click D "http://localhost:8055" "Open Directus Admin"
-    click FE "http://localhost:3000" "Open Frontend App"
-
     class D,FE main;
 ```
