@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api:
+    build: ./server
+    ports:
+      - "3000:3000"
+    depends_on:
+      - php
+      - go
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  php:
+    build: ./server/docker/php
+    mem_limit: 100m
+    read_only: true
+
+  go:
+    build: ./server/docker/go
+    mem_limit: 100m
+    read_only: true
