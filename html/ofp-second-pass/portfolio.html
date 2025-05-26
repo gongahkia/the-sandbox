@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta content="width=device-width, initial-scale=1" name=
+  "viewport">
+  <title>Gabriel Ong</title>
+  <style>
+        @font-face {
+                font-family: cmu;
+                src: url(/Assets/ImmortelInfraTrialVAR-Roman.ttf),
+                src: url(/Assets/ImmortelInfraTrialVAR-Median.ttf),
+                src: url(/Assets/ImmortelInfraTrialVAR-Italic.ttf);
+        }
+
+        @font-face{
+                font-family: Menlo-Regular;
+                src: url(/Assets/Menlo-Regular.woff);
+        }
+
+        html{
+  /*              background-color: rgba(0, 255, 255, .3);*/
+        }
+
+
+        body{
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100vw;
+                height: 100vh;
+                overflow: hidden;
+        }
+
+
+        div#card{
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                width: auto;
+                height: 30vh;
+                min-height: 40vh;
+                max-height: 50vh;
+                padding: 0.5em 2em 0.5em 1em;
+        }
+
+        div#links{
+                display: flex;
+                flex-flow: row;
+                justify-content: space-between;
+        }
+
+        p, a{
+                font-family: sans-serif;
+                text-align: center;
+                font-size: 2rem;
+        }
+
+        #name,
+        #email, 
+        #github,
+        #linkedin,
+        #blog,
+        #resume,
+        #social, 
+        a#dek, 
+        p#dek{
+                color: rgba(237, 21, 21,255);
+        }
+
+        @media (0px <= height <= 700px) {
+                div#card{
+                        position: relative;
+                        display: flex;
+                        width: auto;
+                        height: 15vh;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        border-radius: 0.25em;
+                }
+        }
+
+        @media (0px <= width <= 430px) {
+        body{
+                position: absolute;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 100vw;
+                height: 100vh;
+        }
+
+        div#card{
+                position: relative;
+                display: flex;
+                width: 75vw;
+                height: 100vh;
+                flex-direction: column;
+                justify-content: space-between;
+        }
+
+        div#links{
+                flex-flow: column;
+        }
+
+        p, a{
+                font-size: 1.5rem;
+        }
+
+  }
+
+
+  </style>
+</head>
+<body>
+  <div id="card">
+      <p id="name">Gabriel Ong</p>
+    <p id="dek">Year 3 Student at 
+    <a id="dek" href="https://www.smu.edu.sg/">SMU</a>, 
+    previously at 
+    <a id="dek" href="https://elefant.net.ai/">Elefant</a> 
+    and
+    <a id="dek" href="https://customautosys.com/home">Custom Automated Systems</a>.
+    <div id="links">
+      <p id="social"><a id="linkedin" href="https://www.linkedin.com/in/gabriel-zmong/">LinkedIn</a></p>
+      <p id="social"><a id="resume" href="https://gabrielongzm.com/resume/main.pdf">main.pdf</a></p>
+      <p id="social"><a id="blog" href="https://gabrielongzm.com/blog">Blog</a></p>
+      <p id="social"><a id="email" href="mailto:gabrielzmong@gmail.com?subject%20=Regarding%20">gabrielzmong@gmail</a></p>
+      <p id="social"><a id="github" href="https://github.com/gongahkia">Github <span id="repo-count"></span><a></p>
+    </div>
+  </div>
+</body>
+<script>
+fetch('https://api.github.com/users/gongahkia')
+  .then(response => response.json())
+  .then(data => {
+    document.getElementById('repo-count').textContent = `(${data.public_repos})`;
+  })
+  .catch(() => {
+    document.getElementById('repo-count').textContent = '';
+  });
+</script>
+</html>
