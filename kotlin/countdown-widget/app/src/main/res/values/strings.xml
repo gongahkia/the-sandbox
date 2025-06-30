@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Countdown Widget</string>
+    <string name="widget_title">Countdown</string>
+    <string name="set_countdown">Set Countdown</string>
+    <string name="clear_countdown">Clear Countdown</string>
+    <string name="event_title">Event Title</string>
+    <string name="target_date">Target Date</string>
+    <string name="no_countdown">No countdown set</string>
+    <string name="days">days</string>
+    <string name="hours">hours</string>
+    <string name="minutes">minutes</string>
+    <string name="seconds">seconds</string>
+</resources>
