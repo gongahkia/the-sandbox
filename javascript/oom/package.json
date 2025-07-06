@@ -1,0 +1,15 @@
+{
+  "name": "oom",
+  "version": "1.0.0",
+  "description": "zoom but shit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gabriel ong",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^5.1.0",
+    "ws": "^8.18.3"
+  }
+}
