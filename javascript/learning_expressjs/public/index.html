@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Learning Express to make a simple chat app</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f4f4;}
+    .chat-container { max-width: 500px; margin: 40px auto; background: #fff; padding: 20px; border-radius: 8px; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 8px 0; border-bottom: 1px solid #eee; }
+    form { display: flex; margin-top: 10px; }
+    input { flex: 1; padding: 10px; border: 1px solid #ccc; border-radius: 4px;}
+    button { padding: 10px 20px; border: none; background: #007bff; color: #fff; border-radius: 4px; margin-left: 8px;}
+    #usernameModal {
+      position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: rgba(0,0,0,0.5);
+      display: flex; align-items: center; justify-content: center;
+    }
+    #usernameModal form {
+      background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div id="usernameModal">
+    <form id="usernameForm">
+      <label for="usernameInput"><strong>Enter your username:</strong></label>
+      <input id="usernameInput" autocomplete="off" placeholder="Username" required maxlength="20"/>
+      <button type="submit">Join Chat</button>
+    </form>
+  </div>
+  <div class="chat-container" style="display:none;" id="chatContainer">
+    <h2>Chat Room</h2>
+    <ul id="messages"></ul>
+    <form id="form" action="">
+      <input id="input" autocomplete="off" placeholder="Type your message..." /><button>Send</button>
+    </form>
+  </div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    var socket = io();
+    var form = document.getElementById('form');
+    var input = document.getElementById('input');
+    var messages = document.getElementById('messages');
+    var usernameModal = document.getElementById('usernameModal');
+    var usernameForm = document.getElementById('usernameForm');
+    var usernameInput = document.getElementById('usernameInput');
+    var chatContainer = document.getElementById('chatContainer');
+    var username = "";
+
+    usernameForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      username = usernameInput.value.trim() || 'Anonymous';
+      socket.emit('set username', username);
+      usernameModal.style.display = 'none';
+      chatContainer.style.display = '';
+      input.focus();
+    });
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (input.value) {
+        socket.emit('chat message', input.value);
+        input.value = '';
+      }
+    });
+
+    socket.on('chat message', function(data) {
+      var item = document.createElement('li');
+      item.innerHTML = `<strong>${escapeHtml(data.username)}:</strong> ${escapeHtml(data.msg)}`;
+      messages.appendChild(item);
+      window.scrollTo(0, document.body.scrollHeight);
+    });
+
+    socket.on('user joined', function(username) {
+      var item = document.createElement('li');
+      item.style.color = '#888';
+      item.textContent = `${username} joined the chat`;
+      messages.appendChild(item);
+    });
+    socket.on('user left', function(username) {
+      var item = document.createElement('li');
+      item.style.color = '#888';
+      item.textContent = `${username} left the chat`;
+      messages.appendChild(item);
+    });
+
+    function escapeHtml(text) {
+      return text.replace(/[&<>"']/g, function(m) {
+        return ({
+          '&': '&amp;',
+          '<': '&lt;',
+          '>': '&gt;',
+          '"': '&quot;',
+          "'": '&#39;'
+        })[m];
+      });
+    }
+  </script>
+</body>
+</html>

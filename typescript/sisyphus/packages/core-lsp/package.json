@@ -1,0 +1,12 @@
+{
+  "name": "@sisyphus/core-lsp",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "private": true,
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

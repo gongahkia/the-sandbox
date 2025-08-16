@@ -1,0 +1,15 @@
+{
+  "name": "basic_webllm_setup",
+  "version": "1.0.0",
+  "description": "Simple HTML page that uses [WebLLM](https://webllm.mlc.ai/).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@mlc-ai/web-llm": "^0.2.78"
+  }
+}

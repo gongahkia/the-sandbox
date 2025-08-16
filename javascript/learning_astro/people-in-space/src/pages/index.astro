@@ -1,0 +1,60 @@
+---
+const response = await fetch('http://api.open-notify.org/astros.json');
+const data = await response.json();
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astronauts in Space</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a0a2a;
+            color: #ffffff;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #00ffff;
+        }
+        .astronaut-count {
+            font-size: 48px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .astronaut-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .astronaut-card {
+            background-color: #1a1a4a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Astronauts in Space</h1>
+        <div class="astronaut-count">{data.number}</div>
+        <div class="astronaut-list">
+            {data.people.map((person) => (
+                <div class="astronaut-card">
+                    <h2>{person.name}</h2>
+                    <p>Craft: {person.craft}</p>
+                </div>
+            ))}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+body {
+    background-color:cornsilk;
+}
+
+.header {
+    text-align:center;
+}
+
+.quote {
+    text-align:center;
+    text-decoration-style:wavy;
+}
+
+.userInput {
+    resize:none;
+    width:700px;
+    height:50px;
+}
+
+.flexbox {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.progressTyped {
+    color:green;
+    text-align:center;
+    text-decoration-style:wavy;
+}
+
+.progressUntyped {
+    color:grey;
+    text-align:center;
+    text-decoration-style:wavy;
+}
+
+.progressWrong {
+    color:red;
+    text-align:center;
+    text-decoration-style:wavy;
+}

@@ -1,0 +1,3 @@
+pygame>=2.0.0
+PyOpenGL>=3.1.5
+pyshaderc>=0.1.0

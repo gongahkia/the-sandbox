@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://beq6fumej0mw5"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_fyurk"]
+[ext_resource type="Texture2D" uid="uid://cc0rg7kafq7ae" path="res://gun_sprites.png" id="1_sljnp"]
+[ext_resource type="AudioStream" uid="uid://wq0lxrs32oyj" path="res://revolver_shot1.wav" id="3_4yq7n"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d11i1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kb0qq"]
+atlas = ExtResource("1_sljnp")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ab6as"]
+atlas = ExtResource("1_sljnp")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_myaxm"]
+atlas = ExtResource("1_sljnp")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4odv1"]
+atlas = ExtResource("1_sljnp")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1m1a7"]
+atlas = ExtResource("1_sljnp")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ffjy6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kb0qq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ab6as")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_myaxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4odv1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1m1a7")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 8.0
+}]
+
+[node name="player" type="CharacterBody3D" groups=["player"]]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_fyurk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.02379, 0)
+shape = SubResource("CapsuleShape3D_d11i1")
+
+[node name="RayCast3D" type="RayCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+target_position = Vector3(0, 0, -1000)
+collision_mask = 3
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="gunbase" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 534.0
+offset_top = 295.0
+offset_right = 574.0
+offset_bottom = 335.0
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="UI/gunbase"]
+position = Vector2(350, 168)
+scale = Vector2(0.742188, 0.742188)
+sprite_frames = SubResource("SpriteFrames_ffjy6")
+animation = &"shoot"
+frame = 3
+frame_progress = 1.0
+
+[node name="ColorRect" type="ColorRect" parent="UI"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -9.0
+offset_top = -9.0
+offset_right = 9.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.137255, 0.552941, 0.439216, 0.756863)
+
+[node name="deathscreen" type="Control" parent="UI"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="UI/deathscreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -207.0
+offset_top = -103.0
+offset_right = 207.0
+offset_bottom = 103.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="UI/deathscreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -34.0
+offset_top = -91.0
+offset_right = 37.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "you died "
+
+[node name="Button" type="Button" parent="UI/deathscreen/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = 5.0
+offset_right = 37.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "restart"
+
+[node name="shootsoudn" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_4yq7n")
+bus = &"sfx"

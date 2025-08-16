@@ -1,0 +1,10 @@
+name: httpCats
+description: cats over the internet
+version: 1.0.0
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  http: ^1.2.1
+  html: ^0.15.0

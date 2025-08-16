@@ -1,0 +1,11 @@
+fua
+* continue work on this another time
+* work out what each ebiten method does
+* work out animations in ebiten
+* brainstorm game ideas
+    * arrow keys have reversed direction profiles OR everytime an apple is eaten the input keys for directions change
+    * randomly generating portals
+    * eating apples teleports you somewhere else
+    * you phase in and out of existence and player must remember where they are 
+* work out code for game logic
+* work out code for rendering game logic

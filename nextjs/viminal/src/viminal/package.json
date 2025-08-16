@@ -1,0 +1,21 @@
+{
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/view": "^6.36.2",
+    "@replit/codemirror-vim": "^6.2.1",
+    "@uiw/react-codemirror": "^4.23.7",
+    "next": "^15.1.6",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.13.0",
+    "@types/react": "19.0.8",
+    "typescript": "5.7.3"
+  }
+}

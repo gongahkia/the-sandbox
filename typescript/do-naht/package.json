@@ -1,0 +1,8 @@
+{
+  "devDependencies": {
+    "@types/node": "^18.16.19"
+  },
+  "dependencies": {
+    "typescript": "^5.5.4"
+  }
+}

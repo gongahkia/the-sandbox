@@ -1,0 +1,4 @@
+body.dark { background: #1a1a1a; color: white; }
+body.light { background: white; color: black; }
+#app { padding: 20px; text-align: center; }
+button { padding: 10px 20px; margin: 10px; }

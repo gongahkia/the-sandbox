@@ -1,0 +1,21 @@
+:root {
+  --color-background: #f3f6fa;
+  --color-foreground: #222235;
+  --color-primary: #0057d9;
+  --color-secondary: #13d3a6;
+  --color-accent: #ffc700;
+  --editor-bg: #fff;
+  --editor-fg: #222235;
+  --app-font: 'Fira Mono', monospace;
+}
+
+[data-theme='dark'] {
+  --color-background: #191a1f;
+  --color-foreground: #e9e9ed;
+  --color-primary: #12c2e9;
+  --color-secondary: #c471ed;
+  --color-accent: #f64f59;
+  --editor-bg: #24252b;
+  --editor-fg: #d3d9df;
+  --app-font: 'Fira Mono', monospace;
+}

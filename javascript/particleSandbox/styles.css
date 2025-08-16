@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+#sandCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#particleSelector {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.particle-option {
+  width: 24px;
+  height: 24px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.particle-option:hover {
+  transform: scale(1.1);
+}
+
+.particle-option.selected {
+  box-shadow: 0 0 0 2px #3498db;
+  z-index: 1;
+}

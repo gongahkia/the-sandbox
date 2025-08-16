@@ -1,0 +1,4 @@
+github.com/gopxl/pixel/v2 v2.1.0 h1:kqCWXxSlIhz1gFNOaHt5/JN4f5a6ze4Lto0KAj53Ug8=
+github.com/gopxl/pixel/v2 v2.1.0/go.mod h1:CW+IT9K0F1N3govjPTWmh3DHcF28nHPjvsF3oFDCJ9U=
+golang.org/x/image v0.16.0 h1:9kloLAKhUufZhA12l5fwnx2NZW39/we1UhBesW433jw=
+golang.org/x/image v0.16.0/go.mod h1:ugSZItdV4nOxyqp56HmXwH0Ry0nBCpjnZdpDaIHdoPs=

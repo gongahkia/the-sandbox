@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1wh460hd64a3"]
+
+[ext_resource type="Script" path="res://david.gd" id="1_3y1cc"]
+[ext_resource type="PackedScene" uid="uid://ogik4s70pgwl" path="res://characters/slime/slime.tscn" id="1_stwth"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_scd7c"]
+radius = 53.0094
+
+[node name="david" type="CharacterBody2D"]
+light_mask = 2
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_3y1cc")
+
+[node name="Slime" parent="." instance=ExtResource("1_stwth")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_scd7c")

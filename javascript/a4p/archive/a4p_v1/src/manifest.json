@@ -1,0 +1,55 @@
+{
+  "manifest_version": 3,
+  "version": "1.0",
+  "name": "Atrocious Acts at Affordable Prices",
+  "description": "I protect your Linkedin so you can rest easy. Report issues @gongahkia on Github",
+  "icons": {
+    "16": "local_asset/a4p-16.png",
+    "24": "local_asset/a4p-24.png",
+    "32": "local_asset/a4p-32.png",
+    "64": "local_asset/a4p-64.png",
+    "128": "local_asset/a4p-128.png"
+  },
+  "web_accessible_resources": [
+  {
+    "resources": [
+      "local_asset/a4p-16.png",
+      "local_asset/a4p-24.png",
+      "local_asset/a4p-32.png",
+      "local_asset/a4p-64.png",
+      "local_asset/a4p-128.png"
+    ],
+      "matches": ["*://*/*"]
+    }
+  ],
+  "action": {
+    "default_icon": {
+      "16": "local_asset/a4p-16.png",
+      "24": "local_asset/a4p-24.png",
+      "32": "local_asset/a4p-32.png",
+      "64": "local_asset/a4p-64.png",
+      "128": "local_asset/a4p-128.png"
+    },
+    "default_title": "Open popup",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/feed/"
+      ],
+      "js": ["main.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "storage",
+    "webNavigation",
+    "scripting"
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "your@extension.id"
+    }
+  }
+}

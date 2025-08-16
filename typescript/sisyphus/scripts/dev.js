@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var node_child_process_1 = require("node:child_process");
+console.log("Starting renderer (Vite)...");
+var viteProc = (0, node_child_process_1.exec)("pnpm --filter @sisyphus/renderer dev");
+viteProc.stdout.pipe(process.stdout);
+viteProc.stderr.pipe(process.stderr);
+console.log("Starting Electron main process...");
+var electronProc = (0, node_child_process_1.exec)("pnpm --filter @sisyphus/main start");
+electronProc.stdout.pipe(process.stdout);
+electronProc.stderr.pipe(process.stderr);

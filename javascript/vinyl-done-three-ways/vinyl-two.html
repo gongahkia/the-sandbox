@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vinyl visual two</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0e6d8;
+            font-family: Arial, sans-serif;
+        }
+
+        .record-player {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: #8b4513;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .vinyl {
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: 
+                radial-gradient(circle at center, #3a2f2f 48%, transparent 50%),
+                repeating-radial-gradient(circle at center, #3a2f2f 0, #3a2f2f 5px, #5a4b4b 6px, #5a4b4b 9px);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            animation: spin 5s linear infinite;
+            transition: all 0.5s ease;
+        }
+
+        .record-player:hover .vinyl {
+            animation-play-state: paused;
+        }
+
+        .label {
+            position: absolute;
+            top: 175px;
+            left: 175px;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #d2b48c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            box-sizing: border-box;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            color: #3a2f2f;
+            font-size: 14px;
+        }
+
+        .record-player:hover .label {
+            opacity: 1;
+        }
+
+        .tone-arm {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 100px;
+            height: 150px;
+            background-color: #d2b48c;
+            clip-path: polygon(80% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transform-origin: top right;
+            transition: transform 0.5s ease;
+        }
+
+        .record-player:hover .tone-arm {
+            transform: rotate(-20deg);
+        }
+
+        .grooves {
+            position: absolute;
+            top: 75px;
+            left: 75px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 1px solid rgba(90, 75, 75, 0.3);
+            pointer-events: none;
+        }
+
+        .grooves::before {
+            content: '';
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            right: 25px;
+            bottom: 25px;
+            border: 1px solid rgba(90, 75, 75, 0.3);
+            border-radius: 50%;
+        }
+
+        .grooves::after {
+            content: '';
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            right: 50px;
+            bottom: 50px;
+            border: 1px solid rgba(90, 75, 75, 0.3);
+            border-radius: 50%;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="record-player">
+        <div class="vinyl"></div>
+        <div class="grooves"></div>
+        <div class="label">
+            <p id="song-info">Hover to see what's playing</p>
+        </div>
+        <div class="tone-arm"></div>
+    </div>
+
+    <script>
+
+        const currentSong = {
+            title: "Bohemian Rhapsody",
+            artist: "Queen"
+        };
+
+        const songInfo = document.getElementById('song-info');
+        const recordPlayer = document.querySelector('.record-player');
+
+        recordPlayer.addEventListener('mouseenter', () => {
+            songInfo.textContent = `${currentSong.title} by ${currentSong.artist}`;
+        });
+
+        recordPlayer.addEventListener('mouseleave', () => {
+            songInfo.textContent = "Hover to see what's playing";
+        });
+
+    </script>
+</body>
+</html>

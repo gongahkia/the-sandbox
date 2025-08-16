@@ -1,0 +1,12 @@
+{
+  "name": "@sisyphus/plugin-examples",
+  "version": "0.1.0",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

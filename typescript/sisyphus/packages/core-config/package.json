@@ -1,0 +1,10 @@
+{
+  "name": "@sisyphus/core-config",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

@@ -1,0 +1,11 @@
+[package]
+name = "osu_clone"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.12.0"
+rodio = "0.17.1"  # For audio handling
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"  # For beatmap parsing
+rand = "0.8.5"  # For various randomizations

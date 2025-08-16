@@ -1,0 +1,14 @@
+{
+  "name": "Sisyphus Dark",
+  "type": "dark",
+  "colors": {
+    "background": "#191a1f",
+    "foreground": "#e9e9ed",
+    "primary": "#12c2e9",
+    "secondary": "#c471ed",
+    "accent": "#f64f59",
+    "editorBg": "#24252b",
+    "editorFg": "#d3d9df"
+  },
+  "font": "Fira Mono, monospace"
+}

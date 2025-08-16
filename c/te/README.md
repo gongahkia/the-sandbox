@@ -1,0 +1,1 @@
+`small C text editor`

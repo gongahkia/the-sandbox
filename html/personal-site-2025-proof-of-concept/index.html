@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Gabriel Ong is a Full Stack Developer in Singapore specialising in Legal Technology.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link preload="stylesheet" href="style.css" as="style">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preload" href="https://res.hajimehoshi.com/fonts/SuisseIntl-Regular-WebXL.woff2" as="font" crossorigin="anonymous">
+  <style>
+    .thin-space:after{content:"\2006"}
+
+    /* ---------- Experience Timeline Styles ---------- */
+    .experience-section {
+      position: relative;
+      margin-top: 2em;
+    }
+    .timeline-container {
+      display: flex;
+      align-items: flex-start;
+      position: relative;
+      min-height: 200px;
+    }
+    .timeline-bar {
+      position: relative;
+      width: 32px;
+      min-width: 32px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .timeline-bar:before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 6px;
+      background: #bbb;
+      top: 20px;
+      bottom: 20px;
+      border-radius: 3px;
+      z-index: 1;
+      height: calc(100% - 40px);
+    }
+    .timeline-circle {
+      width: 18px;
+      height: 18px;
+      background: #fff;
+      border: 5px solid #888;
+      border-radius: 50%;
+      z-index: 2;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .timeline-circle.top {
+      top: 0;
+    }
+    .timeline-circle.bottom {
+      bottom: 0;
+    }
+    .timeline-content {
+      flex: 1;
+      padding-left: 1.5em;
+    }
+    /* ---------- Presentations Styles ---------- */
+    .presentations-section {
+      margin-top: 2em;
+    }
+    .presentations-scroll {
+      display: flex;
+      overflow-x: auto;
+      gap: 1.2em;
+      padding-bottom: 1em;
+      margin-left: 0;
+      margin-right: 0;
+      scroll-behavior: smooth;
+    }
+    .presentation-card {
+      min-width: 250px;
+      max-width: 320px;
+      background: #1a1a1a;
+      color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1em;
+      flex: 0 0 auto;
+      margin-right: 0.5em;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .presentation-date {
+      font-size: 0.95em;
+      margin-bottom: 0.6em;
+      opacity: 0.8;
+      font-weight: bold;
+    }
+    .presentation-card a {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: underline;
+      word-break: break-all;
+    }
+    .presentation-card div {
+      margin-top: 0.3em;
+    }
+    @media (max-width: 600px) {
+      .presentation-card {
+        min-width: 180px;
+        padding: 0.8em;
+      }
+    }
+  </style>
+  <script src="script.js" defer></script>
+  <title>GABRIEL ONG</title>
+  <link rel="shortcut icon" href="./asset/blob.ico" type="image/x-icon">
+</head>
+<body>
+  <div id="click-container"></div>
+  <input type="button" id="dark-mode">
+  <label for="dark-mode" id="">
+    <img id="infinityButton" src="asset/roller.png" height="24" viewbox="0 -960 960 960" width="24"/>
+  </label>
+<!-- start of actual website -->
+  <main>
+    <article class="overallArticleTags">
+      <!-- profile header -->
+      <section class="title">
+        <header>
+          <h1>Gabriel Ong</h1>
+          <p>谷口仁太</p>
+          <p>王哲勉</p>
+          <p>Singapore</p>
+          <span id="time">0:00 PM</span>
+          <a href="https://24timezones.com/world\_directory/current\_singapore\_time.php">GMT+8</a>
+          <p>Full Stack Developer specialising in Legal Technology.</p>
+        </header>
+        <aside>
+          <figure>
+            <img src="asset/gong2.png" width="140" alt="Gabriel Ong" id="gongImage">
+          </figure>
+        </aside>
+      </section>
+      <!-- ... Other sections ... -->
+      <section class="skills">
+        <dl>
+          <dt>Accounts</dt>
+          <dd>
+            <a href="https://www.linkedin.com/in/gabriel-zmong/">LinkedIn</a>,
+            <a href="https://github.com/gongahkia">GitHub</a>,
+            <a href="https://gabrielongzm.com/blog/">Blog</a>,
+            <a href="https://letterboxd.com/gongtalksfilm/">Letterboxd</a>
+          </dd>
+          <dt>Resume</dt>
+          <dd>
+            <a href="./resume/main.pdf"><code>main.pdf</code></a>
+          </dd>
+          <dt>Mail</dt>
+          <dd>
+            <a href="mailto:gabrielzmong@gmail.com">gabrielzmong@gmail.com</a> (Business)
+            <br>
+            <a href="mailto:gabriel.ong.2023@scis.smu.edu.sg">gabriel.ong.2023@scis.smu.edu.sg</a> (School)
+          </dd>
+        </dl>
+      </section>
+      <!-- works (update as needed) -->
+
+     <section class="works">
+        <h2>Works</h2>
+          <div class="grid-container">
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/yuho">yuho</a></h3>
+            <p>Domain-specific language for Singapore Criminal Law</p>
+          </div>
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/sea-kayak">sea-kayak</a></h3>
+            <p>Singapore's Daily Legal Updates Web App</p>
+          </div>
+            
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/skill-hunter">skill-hunter</a></h3>
+            <p>SSO Legislation Browser Extension</p>
+          </div>
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/dc4u">dc4u</a></h3>
+            <p>Markup language for Charge Sheet Drafting</p>
+          </div>
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/jikai">jikai</a></h3>
+            <p>Tort Law hypothetical Generation Model</p>
+          </div>
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/judgeman">judgeman</a></h3>
+            <p>eLitigation Case Brief Browser Extension</p>
+          </div>
+            
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/modo-app">modo-app</a></h3>
+            <p>Social Media Web App for Niche Communities</p>
+          </div>
+            
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/netero">netero</a></h3>
+            <p>Blockchain-powered Voting Platform</p>
+          </div>
+
+          <div class="grid-item-1">
+            <h3><a href="https://github.com/gongahkia/uzu">uzu</a></h3>
+            <p>Legal Case Summaries Browser Extension</p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- skills (update as needed) -->
+      <section class="skills">
+        <h2>Skills</h2>
+        <dl>
+          <dt>Frontend</dt>
+          <dd>
+            React, React Native, Next.js, Vue.js, Electron.js, Svelte, Flutter, Quasar, Cordova
+          </dd>
+          <dt>Backend</dt>
+          <dd>
+            Python, Rust, SQL, Go, JavaScript, TypeScript, Node.js, PHP, C, C++, Dart, Directus, Hookdeck
+          </dd>
+          <dt>Cloud</dt>
+          <dd>
+            GCP, Supabase, Firebase, MongoDB, ChromaDB, Pinecone, AWS, Heroku, Docker, Kubernetes, CI/CD
+          </dd>
+          <dt>Others</dt>
+          <dd>
+            Linux, TensorFlow, PyTorch, Pandas, Hugging Face, WebLLM, Vulkan, WebGL, WebGPU, Haskell, Lua
+          </dd>
+          <dt>Legal</dt>
+          <dd>
+            Legal writing and research, Contract Law, Criminal Law, Tort Law, Intellectual Property Law
+          </dd>
+          <dt>Languages</dt>
+          <dd>
+            English (native), Mandarin (bilingual), Japanese (JLPT N4)
+          </dd>
+          <dt>Organizations</dt>
+          <dd>
+            <a href="https://github.com/modo-collective">The Modo Collective</a>,
+            <a href="https://github.com/4-0gpa">>4.0gpa</a>,
+            <a href="https://github.com/chesslablab">ChessLaBlab</a>,
+            <a href="https://github.com/The-Yap-Labs">The Yap Labs</a>
+          </dd>
+          <dt>Open Source Contributions</dt>
+          <dd>
+            <a href="https://github.com/4-0gpa/five-seconds">>4.0gpa</a>,
+            <a href="https://github.com/chesslablab/chess-server">ChessLaBlab</a>,
+            <a href="https://github.com/shardeum/shardeum-docs">Shardeum</a>, 
+            <a href="https://github.com/OSSPhilippines/personal-well-being-dashboard">OSSPH</a>, 
+            <a href="https://github.com/The-Yap-Labs">The Yap Labs</a>
+            etc.
+          </dd>
+        </dl>
+      </section>
+
+      <!-- awards (update as needed) -->
+
+      <section class="skills">
+
+        <h2>Awards</h2>
+
+        <dl>
+          <dt>Feb 2025</dt>
+          <dd>
+            <a href="https://hackomania.geekshacking.com/">GeeksHacking Choice Award for HackOMania 2025</a>
+            <br>
+            GeeksHacking
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Sep 2024</dt>
+          <dd>
+            <a href="https://www.cyberyouth.sg/events/youthxhack-2024-total-defence-edition">Champion of YouthxHack 2024 - Digital Defence</a>
+            <br>
+            Cyber Youth Singapore
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Aug 2023 - Apr 2027</dt>
+          <dd>
+            <a href="https://admissions.smu.edu.sg/financial-matters/financial-aid/smu-global-impact-scholarship-award">Global Impact Scholarship</a>
+            <br>
+            Singapore Management University
+          </dd>
+        </dl>
+
+      </section>
+
+      <!-- education (update as needed) -->
+
+
+      <section class="skills">
+
+        <h2>Education</h2>
+
+        <dl>
+          <dt>Aug 2023 - Apr 2027</dt>
+          <dd>
+            <a href="https://computing.smu.edu.sg/bsc-computing-law">Bachelor of Science (Computing and Law)</a>
+            <br>
+            Singapore Management University
+            <br>
+            GPA: 3.66/4.00
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Jan 2019 - Dec 2020</dt>
+          <dd>
+            <a href="https://www.acsindep.moe.edu.sg/the-acs-independent-experience/ibdp/">International Baccalaureate Diploma Programme (IBDP)</a>
+            <br>
+            Anglo Chinese School (Independent)
+            <br>
+            Score: 44/45 
+          </dd>
+        </dl>
+
+      </section>  
+
+      <!-- experience (update as needed) -->
+      <section class="skills experience-section">
+        <h2>Experience</h2>
+        <div class="timeline-container">
+          <div class="timeline-bar">
+            <span class="timeline-circle top"></span>
+            <span class="timeline-circle bottom"></span>
+          </div>
+          <div class="timeline-content">
+            <dl>
+              <dt>Aug 2025 - Dec 2025</dt>
+              <dd>
+                <a href="https://whyhow.ai/">WhyHow.AI</a>
+                <br>
+                Software Engineer Intern
+              </dd>
+            </dl>
+            <dl>
+              <dt>May 2025 - Aug 2025</dt>
+              <dd>
+                <a href="https://law.smu.edu.sg/">SMU Yong Pung How School of Law</a>
+                <br>
+                Research Assistant
+              </dd>
+            </dl>
+            <dl>
+              <dt>May 2025 - Aug 2025</dt>
+              <dd>
+                <a href="https://customautosys.com/home">Custom Automated Systems</a>
+                <br>
+                Full Stack Development Intern
+              </dd>
+            </dl>
+            <dl>
+              <dt>Jan 2025 - Apr 2025</dt>
+              <dd>
+                <a href="https://law.smu.edu.sg/">SMU Yong Pung How School of Law</a>
+                <br>
+                Research Assistant
+              </dd>
+            </dl>
+            <dl>
+              <dt>Aug 2024 - Mar 2025</dt>
+              <dd>
+                <a href="https://modo-live.netlify.app/">The Modo Collective</a>
+                <br>
+                Founder, Lead Developer
+              </dd>
+            </dl>
+            <dl>
+              <dt>Sep 2024 - Dec 2024</dt>
+              <dd>
+                <a href="https://elefant.net.ai/">Elefant</a>
+                <br>
+                Backend Development Intern
+              </dd>
+            </dl>
+            <dl>
+              <dt>Aug 2023 - Oct 2024</dt>
+              <dd>
+                <a href="https://law.smu.edu.sg/student-activities/student-clubs/smu-legal-innovation-and-technology-lit">SMU Legal Innovation and Technology (LIT)</a>
+                <br>
+                Tech Development Director
+              </dd>
+            </dl>
+            <dl>
+              <dt>Apr 2024 - Aug 2024</dt>
+              <dd>
+                <a href="https://the-yap-labs.github.io/">The Yap Labs</a>
+                <br>
+                Co-Founder, Tech Lead
+              </dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+      <!-- presentations (update as needed) -->
+      <section class="skills presentations-section">
+        <h2>Presentations</h2>
+        <div class="presentations-scroll">
+          <div class="presentation-card">
+            <span class="presentation-date">Jan 2025</span>
+            <a href="https://github.com/4-0gpa/five-seconds/blob/main/asset/presentation/5seconds_slides.pdf">5seconds - Outsourced API-first data security</a>
+            <div>AI Festival Asia (AIFA) 2025</div>
+          </div>
+          <div class="presentation-card">
+            <span class="presentation-date">Nov 2024</span>
+            <a href="https://github.com/gongahkia/skill-hunter/blob/main/asset/presentation/class_part.pdf">Skill Hunter - Making legislation legible</a>
+            <div>SMU BSc (C&L) LAW105</div>
+          </div>
+          <div class="presentation-card">
+            <span class="presentation-date">Aug 2024</span>
+            <a href="https://github.com/gongahkia/yuho/blob/main/archive/yuho_v2/doc/presentation/cclaw-150824/slides.pdf">Yuho - Imagining Criminal Law as Code</a>
+            <div>SMU Centre for Computational Law (CCLAW)</div>
+          </div>
+          <div class="presentation-card">
+            <span class="presentation-date">Jul 2024</span>
+            <a href="https://github.com/gongahkia/yuho/blob/main/archive/yuho_v1/doc/legal_ai_user_group_250724.pdf">Yuho - Another way to read Singapore's Penal Code</a>
+            <div>SMU Institute of Innovation & Entrepreneurship</div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="skills">
+
+        <h2>Licenses & Certifications</h2>
+
+        <dl>
+          <dt>Feb 2025</dt>
+          <dd>
+            <a href="https://www.datacamp.com/courses/data-manipulation-with-pandas">Data Manipulation with pandas</a>
+            <br>
+            Credential ID: 494b8f47107335b7a6c8c960a281dcfdd3025db3 
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Jul 2024</dt>
+          <dd>
+            <a href="https://www.coursera.org/professional-certificates/google-cybersecurity">Google Cybersecurity Specialization</a>
+            <br>
+            Credential ID: ZRUJ9SDLQE4V
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Jun 2024</dt>
+          <dd>
+            <a href="https://www.coursera.org/professional-certificates/google-advanced-data-analytics">Google Advanced Data Analytics Specialization</a>
+            <br>
+            Credential ID: ULP7G5LBRNM7 
+            <br>
+            <br>
+            <a href="https://www.coursera.org/professional-certificates/google-data-analytics">Google Data Analytics Specialization</a>
+            <br>
+            Credential ID: W5ZUSVKCJYKB
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>May 2024</dt>
+          <dd>
+            <a href="https://www.coursera.org/professional-certificates/google-digital-marketing-ecommerce">Google Digital Marketing & E-commerce Specialization</a>
+            <br>
+            Credential ID: 33NVBXNXMJBX
+            <br>
+            <br>
+            <a href="https://www.coursera.org/professional-certificates/google-project-management">Google Project Management Specialization</a>
+            <br>
+            Credential ID: NFAAP9Y8GUJH
+            <br>
+            <br>
+            <a href="https://www.coursera.org/professional-certificates/google-ux-design">Google UX Design Specialization</a>
+            <br>
+            Credential ID: UV7R9TD85GAB
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Dec 2023</dt>
+          <dd>
+            <a href="https://www.coursera.org/learn/web-applications-php">Building Web Applications in PHP</a>
+            <br>
+            Credential ID: E5K7JMPKCVEA
+            <br>
+            <br>
+            <a href="https://www.coursera.org/specializations/cortex-m-architecture-and-software-development">Arm Cortex-M Architecture and Software Development Specialization</a>
+            <br>
+            Credential ID: RN5ZPETRCCQR
+          </dd>
+        </dl>
+
+        <dl>
+          <dt>Jun 2021</dt>
+          <dd>
+            <a href="https://asktraining.com.sg/it-courses/advanced-certificate-in-infocomm-technology-infrastructure-and-operations/">Advanced Certificate in Infocomm Technology</a>
+            <br>
+            Credential ID: 100017282
+          </dd>
+        </dl>
+
+      </section>  
+
+
+    </article>
+    <footer>
+      <p>© 2023-<span id="current-year"></span> Gabriel Ong. All rights reserved.</p>
+    </footer>
+  </main>
+  <div class="wrapper"></div>
+</body>
+</html>

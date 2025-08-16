@@ -1,0 +1,27 @@
+{
+    "metrics": {
+        "scraping_date": "2024-12-23 14:40:57"
+    },
+    "scraped": {
+        "config": {
+            "date": "13-Jan-2025",
+            "start_time": "08:00",
+            "end_time": "11:00",
+            "duration": 3.0,
+            "building_names": [
+                "Li Ka Shing Library"
+            ],
+            "floors": [
+                "Level 4"
+            ],
+            "facility_types": [
+                "Project Room"
+            ],
+            "room_capacity": "From6To10Pax",
+            "equipment": [
+                ""
+            ]
+        },
+        "result": {}
+    }
+}

@@ -1,0 +1,27 @@
+{
+  "manifest_version": 2,
+  "name": "Spotify Please",
+  "version": "1.0",
+  "description": "Handle Spotify playlists with ease.",
+  "icons": {
+    "48": "icons/icon-48.ico"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "default_icon": "icons/icon-48.ico",
+    "default_title": "Spotify Playlist Editor",
+    "default_popup": "popup/popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://open.spotify.com/playlist/*"],
+      "js": ["content.js"]
+    }
+  ]
+}

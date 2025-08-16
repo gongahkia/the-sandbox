@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="app">
+    <h1>My Mini App</h1>
+    <button onclick="sendData()">Send Message</button>
+  </div>
+
+  <script>
+    // Initialize Telegram Web App
+    const tg = Telegram.WebApp;
+    tg.ready();
+    
+    // Configure main button
+    tg.MainButton
+      .setText('Submit')
+      .onClick(sendData)
+      .show();
+
+    // Handle theme changes
+    tg.onEvent('themeChanged', () => {
+      document.body.className = tg.colorScheme;
+    });
+
+    // Send data to bot
+    function sendData() {
+      tg.sendData(JSON.stringify({
+        action: 'button_click',
+        timestamp: Date.now()
+      }));
+      tg.close();
+    }
+
+    // Get user data
+    const user = tg.initDataUnsafe.user;
+    console.log('User ID:', user?.id);
+  </script>
+</body>
+</html>

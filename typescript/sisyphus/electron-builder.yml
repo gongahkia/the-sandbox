@@ -1,0 +1,19 @@
+appId: com.sisyphus.ide
+productName: SisyphusIDE
+directories:
+  buildResources: assets
+  output: dist
+files:
+  - packages/main/dist/**
+  - packages/renderer/dist/**
+  - packages/core-*/dist/**
+  - packages/shared/dist/**
+publish: null
+extraResources:
+  - assets/**
+mac:
+  target: dmg
+win:
+  target: nsis
+linux:
+  target: AppImage

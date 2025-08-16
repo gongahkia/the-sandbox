@@ -1,0 +1,12 @@
+{
+  "name": "@sisyphus/core-plugins",
+  "version": "0.1.0",
+  "main": "dist/index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^18.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.5.0"
+  }
+}

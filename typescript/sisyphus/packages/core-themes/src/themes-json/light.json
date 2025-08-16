@@ -1,0 +1,14 @@
+{
+  "name": "Sisyphus Light",
+  "type": "light",
+  "colors": {
+    "background": "#f3f6fa",
+    "foreground": "#222235",
+    "primary": "#0057d9",
+    "secondary": "#13d3a6",
+    "accent": "#ffc700",
+    "editorBg": "#fff",
+    "editorFg": "#222235"
+  },
+  "font": "Fira Mono, monospace"
+}
